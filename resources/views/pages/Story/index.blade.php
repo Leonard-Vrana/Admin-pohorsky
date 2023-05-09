@@ -26,8 +26,8 @@
 					<div>
 						<select name="itemPerPage" onchange="this.form.submit()">
 							<option value="25" @if(empty($_GET["itemPerPage"])) selected @endif>25</option>
-							<option value="50" @if(!isset($_GET["itemPerPage"]) || $_GET["itemPerPage"] == 50) selected @endif>50</option>
-							<option value="100" @if(!isset($_GET["itemPerPage"]) || $_GET["itemPerPage"] == 100) selected @endif>100</option>
+							<option value="50" @if(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 50) selected @endif>50</option>
+							<option value="100" @if(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 100) selected @endif>100</option>
 						</select>
 					</div>
 				</div>
