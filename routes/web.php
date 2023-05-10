@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', function () {
             return view('homepage');
         })->name("homepage");
-        Route::get('server/darkMode', 'App\Http\Controllers\DarkModecontroller@switch')->name('switch-darkMode');
+        Route::get('server/darkMode', 'App\Http\Controllers\DarkModeController@switch')->name('switch-darkMode');
         Route::get('server/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('admin-logout');
     
         // Switch domain
