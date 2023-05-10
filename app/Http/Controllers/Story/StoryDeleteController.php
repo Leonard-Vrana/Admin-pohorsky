@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Storage;
 class StoryDeleteController extends Controller
 {
     public function delete(Request $r){
-        if($r->deleteStory){
-            $story = StoryModel::where("id", $r->deleteStory)->first();
+        if($r->id){
+            $story = StoryModel::where("id", $r->id)->first();
             if($story){
                 $childrens = StoryChildrensModel::all()->where("gid", $story->id);
                 foreach($childrens as $children){
