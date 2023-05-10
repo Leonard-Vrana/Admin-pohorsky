@@ -169,7 +169,7 @@
                     @foreach ($story->storyChildrens as  $gallery)
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-5">#{{ $gallery->id }}</td> 
-                            <td>{{ substr($gallery->text, 0, 40) }}{{ strlen($gallery->text) > 40 ? "..." : "" }}</td>
+                            <td>{{ mb_substr($gallery->text, 0, 40, "UTF-8") }} {{ strlen($gallery->text) > 50 ? "..." : "" }}</td>
                             <td>
                                 <div class="h-11 w-11 relative overflow-hidden bg-cover bg-center">
                                     <img class="absolute top-0 w-full h-full object-cover object-center" src="{{ $gallery->img }}">
