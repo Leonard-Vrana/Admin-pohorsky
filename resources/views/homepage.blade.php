@@ -3,5 +3,4 @@
 ])
 
 @section("main")
-test
 @endsection

@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
         Route::get('story/edit/{id}', 'App\Http\Controllers\Story\StoryUpdateController@view')->name('admin-storyEditView');
         Route::post('server/story/add', 'App\Http\Controllers\Story\StoryCreateController@create')->name('admin-storyAddCMD');
         Route::post('server/story/update', 'App\Http\Controllers\Story\StoryUpdateController@update')->name('admin-storyUpdateCMD');
+        Route::post('server/story/delete', 'App\Http\Controllers\Story\StoryDeleteController@delete')->name('admin-storyDeleteCMD');
         Route::post('server/story/public', 'App\Http\Controllers\Story\StoryController@changePublic')->name('admin-storyPublicCMD');
 
         // Story Gallery
