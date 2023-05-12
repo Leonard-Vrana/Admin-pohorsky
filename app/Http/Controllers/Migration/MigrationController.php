@@ -286,7 +286,7 @@ class MigrationController extends Controller
         $stories = StoryModel::all();
         foreach($stories as $story){
             $item = $conn->select("SELECT * FROM wp_6_participants_database WHERE id = $story->id");
-            if($item[0]){
+            if(!empty($item[0])){
                 $story->annotation = $item[0]->anotace;
                 if($story->save()){
 
