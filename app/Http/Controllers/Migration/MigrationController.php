@@ -35,7 +35,7 @@ class MigrationController extends Controller
             $story->language = "cz";
             $story->title = $item->nazev;
             $story->note = $item->poznamka.$item->text;
-            $story->annotation = $story->anotace;
+            $story->annotation = $item->anotace;
             $story->height = $item->vyska;
             $story->have = $item->mam;
             $story->file = $item->soubor;
@@ -177,7 +177,7 @@ class MigrationController extends Controller
                     $story->language = "sk";
                     $story->title = $item->sknazev;
                     $story->note = $item->poznamka.$item->text;
-                    $story->annotation = $story->anotace;
+                    $story->annotation = $item->anotace;
                     $story->height = $item->vyska;
                     $story->have = $item->mam;
                     $story->file = $item->soubor;
@@ -278,5 +278,20 @@ class MigrationController extends Controller
                 }
             }
         }
+    }
+
+
+    public function annotation(){
+        $conn = DB::connection("mysql2");
+        $stories = StoryModel::all();
+        foreach($stories as $story){
+            $item = $conn->select("SELECT * FROM wp_6_participants_database WHERE id = $story->id");
+            if($item[0]){
+                $story->annotation = $item[0]->anotace;
+                if($story->save()){
+
+                }
+            }
+        } 
     }
 }

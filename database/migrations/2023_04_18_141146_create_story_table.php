@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string("public")->default(true);
             $table->string("onlyUser")->default(false);
             $table->string("note")->nullable();
-            $table->string("annotation")->nullable();
+            $table->longText("annotation")->nullable();
             $table->string("height")->nullable();
             $table->string("have")->nullable();
             $table->string("file")->nullable();
