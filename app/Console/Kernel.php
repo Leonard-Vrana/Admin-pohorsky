@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
         // })->everyMinute();
         $schedule->call(function () {
             $controller = new MigrationController;
-            $controller->annotation();
+            $controller->images();
         })->everyMinute();
         
     }

@@ -294,4 +294,14 @@ class MigrationController extends Controller
             }
         } 
     }
+
+    public function images(){
+        $images = new StoryChildrensModel;
+        foreach($images as $image){
+            $image->path = $image->img;
+            if($image->save()){
+                
+            }
+        }
+    }
 }
