@@ -116,9 +116,10 @@ class StoryUpdateController extends Controller
         if($r->text && $r->id){
             $image->gid = $r->id;
             $image->text = $r->text;
-            $path = $r->file('image')->store('images');
-            $image->img = Storage::url($path);
-            $image->path = $path;
+            $randomName = $r->file('image')->hashName();
+            $r->file('image')->move(public_path('storage/images'), $randomName);
+            $image->img = "/storage/images/".$randomName;
+            $image->path = "/storage/images/".$randomName;
             if($image->save()){
                 flash("Obrázok bol úspešne pridaný")->success();
                 return back();
@@ -132,8 +133,9 @@ class StoryUpdateController extends Controller
         if($r->id){
             $gallery = StoryChildrensModel::all()->where("id", $r->id)->first();
             if($gallery){
-                if(Storage::exists($gallery->path)){
-                    if(Storage::delete($gallery->path) && $gallery->delete()){
+                $file = public_path($gallery->path);
+                if(file_exists($file)){
+                    if(unlink($file) && $gallery->delete()){
                         flash("Obrázok bol úspešne vymazaný")->success();
                         return back();
                     }
@@ -150,12 +152,14 @@ class StoryUpdateController extends Controller
             $image = StoryChildrensModel::all()->where("id", $r->id)->first();
             $image->text = $r->text;
             if($r->file('image')){
-                if(Storage::exists($image->path)){
-                    Storage::delete($image->path);
+                $file = public_path($image->path);
+                if (file_exists($file)) {
+                    unlink($file);
                 }
-                $path = $r->file('image')->store('images');
-                $image->img = Storage::url($path);
-                $image->path = $path;
+                $randomName = $r->file('image')->hashName();
+                $r->file('image')->move(public_path('storage/images'), $randomName);
+                $image->img = "/storage/images/".$randomName;
+                $image->path = "/storage/images/".$randomName;
             }
             if($image->save()){
                 flash("Obrázok bol úspešne upravený")->success();
