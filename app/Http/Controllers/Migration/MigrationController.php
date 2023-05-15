@@ -296,11 +296,11 @@ class MigrationController extends Controller
     }
 
     public function images(){
-        $images = new StoryChildrensModel;
+        $images = StoryChildrensModel::all();
         foreach($images as $image){
             $image->path = $image->img;
             if($image->save()){
-                
+
             }
         }
     }
