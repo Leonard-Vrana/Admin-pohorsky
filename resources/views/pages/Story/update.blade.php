@@ -215,6 +215,24 @@
             </table>
         </div>
     </section>
+
+    <section class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-white inputs mt-5">
+        <div class="flex justify-between items-center">
+            <h2 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">Poznámky uživatelov</h2>
+        </div>
+        <div class="table w-full"> 
+            <table class="w-full whitespace-no-wrap">
+                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                    @foreach ($story->notes as $note)
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-4 py-5">#{{ $note->id }}</td> 
+                            <td class="px-4 py-5">{{ $note->domain }}</td> 
+                            <td class="px-4 py-5">{{ $note->note }}</td> 
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+    </section>
 @endsection
 
 @push('modals')
