@@ -21,14 +21,14 @@ class Kernel extends ConsoleKernel
         //     $controller = new MigrationController;
         //     $controller->make();
         // })->everyMinute();
-        // $schedule->call(function () {
-        //     $controller = new MigrationController;
-        //     $controller->migrateSK();
-        // })->everyMinute();
         $schedule->call(function () {
             $controller = new MigrationController;
-            $controller->migrateImages();
+            $controller->deleteSK();
         })->everyMinute();
+        // $schedule->call(function () {
+        //     $controller = new MigrationController;
+        //     $controller->migrateImages();
+        // })->everyMinute();
         // $schedule->call(function () {
         //     $controller = new MigrationController;
         //     $controller->images();
