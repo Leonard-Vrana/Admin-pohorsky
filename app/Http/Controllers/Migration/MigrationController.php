@@ -163,11 +163,11 @@ class MigrationController extends Controller
         foreach($stories as $story){
             $gallery = StoryChildrensModel::all()->where("gid", $story->id);
             foreach($gallery as $item){
-                $file = public_path($item->path);
-                if(file_exists($file)){
-                    if(unlink($file)){
-                    }
-                }
+                // $file = public_path($item->path);
+                // if(file_exists($file)){
+                //     if(unlink($file)){
+                //     }
+                // }
                 $item->delete();
             }
             $story->delete();
