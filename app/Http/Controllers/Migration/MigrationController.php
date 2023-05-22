@@ -283,7 +283,7 @@ class MigrationController extends Controller
                         foreach($images as $image){
                             $children = new StoryChildrensModel;
                             $children->gid = $story->id;
-                            $children->path = "https://kolicky.cz/".$gallery[0]->path."/".$image->filename;
+                            $children->path = "http://localhost/".$gallery[0]->path."/".$image->filename;
                             $children->img = "false";
                             $children->text = $image->description;
                             $children->save();
