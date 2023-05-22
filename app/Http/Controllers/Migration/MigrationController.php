@@ -159,7 +159,7 @@ class MigrationController extends Controller
     }
 
     public function deleteSK(){
-        $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk")->first();
+        $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk");
         foreach($stories as $story){
             $gallery = StoryChildrensModel::all()->where("gid", $story->id);
             foreach($gallery as $item){
