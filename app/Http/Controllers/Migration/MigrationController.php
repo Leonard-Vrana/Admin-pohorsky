@@ -153,7 +153,6 @@ class MigrationController extends Controller
     
                 }
             } catch(Exception $e){
-                print_r($e);
             }
         }
     }
