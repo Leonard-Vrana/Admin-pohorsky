@@ -141,14 +141,14 @@ class MigrationController extends Controller
     }
 
     public function migrateImages(){
-        $images = StoryChildrensModel::all()->where("img", "false");
+        $images = StoryChildrensModel::all()->where("img", "false")->take(5);
         foreach($images as $image){
             try {
+                $randomName = Str::random(40) . '.jpg';
                 $contents = file_get_contents($image->path);
-                $randomName = Str::random(40);
-                Storage::put('images/'.$randomName.'.jpg', $contents);
-                $image->path = 'images/'.$randomName.'.jpg';
-                $image->img = Storage::url('images/'.$randomName.'.jpg');
+                Storage::put('public/storage/imgs/' . $randomName, $contents);
+                $image->path = 'storage/imgs/'.$randomName.'.jpg';
+                $image->img = 'storage/imgs/'.$randomName.'.jpg';
                 if($image->save()){
     
                 }
@@ -158,7 +158,7 @@ class MigrationController extends Controller
     }
 
     public function rand(){
-        $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk");
+        $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk")->where("domain", 'LIKE', '%"'.'storage/'.'"%');;
         foreach($stories as $story){
             $gallery = StoryChildrensModel::all()->where("gid", $story->id);
             foreach($gallery as $gallery){
