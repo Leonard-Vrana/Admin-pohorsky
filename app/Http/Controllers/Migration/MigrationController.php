@@ -158,7 +158,25 @@ class MigrationController extends Controller
         }
     }
 
+    public function deleteSK(){
+        $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk")->first();
+        foreach($stories as $story){
+            $gallery = StoryChildrensModel::all()->where("gid", $story->id);
+            foreach($gallery as $item){
+                $file = public_path($item->path);
+                if(file_exists($file)){
+                    if(unlink($file)){
+                    }
+                }
+                $item->delete();
+            }
+            $story->delete();
+        }
+    }
+
     public function migrateSK(){
+        $stories = 0;
+        $stories2 = 0;
         $conn = DB::connection("mysql2");
         $items = $conn->select("SELECT * FROM wp_6_participants_database ORDER BY id ASC");
         foreach($items as  $item){
@@ -171,8 +189,12 @@ class MigrationController extends Controller
                 } else {
                     $images = [];
                 }
-                $findStory = StoryModel::where("title", $item->sknazev)->first();
-                if($findStory) {} else {
+                $findStory = StoryModel::all()->where("title", $item->sknazev)->where("domain", '["skAnime"]')->where("language", "sk")->first();
+                if($findStory) {
+                    echo $stories."-".$item->id."-".$findStory->id."-".$findStory->title."<br>";
+                    $stories++;
+                } else {
+                    $stories2++;
                     $story = new StoryModel;
                     $story->language = "sk";
                     $story->title = $item->sknazev;
@@ -264,20 +286,23 @@ class MigrationController extends Controller
                         $story->img = $item->obrazek;
                     }
                     $story->domain = json_encode(['skAnime']);
-                    $story->save();
-                    if($gallery){
-                        foreach($images as $image){
-                            $children = new StoryChildrensModel;
-                            $children->gid = $story->id;
-                            $children->path = "https://kolicky.cz/".$gallery[0]->path."/".$image->filename;
-                            $children->img = "false";
-                            $children->text = $image->description;
-                            $children->save();
-                        }
-                    }
+                    // $story->save();
+                    // if($gallery){
+                    //     foreach($images as $image){
+                    //         $children = new StoryChildrensModel;
+                    //         $children->gid = $story->id;
+                    //         $children->path = "https://kolicky.cz/".$gallery[0]->path."/".$image->filename;
+                    //         $children->img = "false";
+                    //         $children->text = $image->description;
+                    //         $children->save();
+                    //     }
+                    // }
                 }
             }
         }
+
+        echo $stories."<br />";
+        echo $stories2;
     }
 
 
@@ -304,4 +329,14 @@ class MigrationController extends Controller
             }
         }
     }
+
+    public function migrate2(){
+        $conn = DB::connection("mysql2");
+        $stories = StoryModel::all();
+        foreach($stories as $story){
+            $gallery = $conn->select("SELECT * FROM wp_6_ngg_gallery WHERE gid = $story->id");
+            
+        }        
+    }
+
 }
