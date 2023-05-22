@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             $controller = new MigrationController;
             $controller->migrateImages();
-        // })->everyMinute();
+        })->everyMinute();
         // $schedule->call(function () {
         //     $controller = new MigrationController;
         //     $controller->images();
