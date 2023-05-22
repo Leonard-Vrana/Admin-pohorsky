@@ -175,8 +175,6 @@ class MigrationController extends Controller
     }
 
     public function migrateSK(){
-        $stories = 0;
-        $stories2 = 0;
         $conn = DB::connection("mysql2");
         $items = $conn->select("SELECT * FROM wp_6_participants_database ORDER BY id ASC");
         foreach($items as  $item){
@@ -189,12 +187,6 @@ class MigrationController extends Controller
                 } else {
                     $images = [];
                 }
-                $findStory = StoryModel::all()->where("title", $item->sknazev)->where("domain", '["skAnime"]')->where("language", "sk")->first();
-                if($findStory) {
-                    echo $stories."-".$item->id."-".$findStory->id."-".$findStory->title."<br>";
-                    $stories++;
-                } else {
-                    $stories2++;
                     $story = new StoryModel;
                     $story->language = "sk";
                     $story->title = $item->sknazev;
@@ -286,23 +278,20 @@ class MigrationController extends Controller
                         $story->img = $item->obrazek;
                     }
                     $story->domain = json_encode(['skAnime']);
-                    // $story->save();
-                    // if($gallery){
-                    //     foreach($images as $image){
-                    //         $children = new StoryChildrensModel;
-                    //         $children->gid = $story->id;
-                    //         $children->path = "https://kolicky.cz/".$gallery[0]->path."/".$image->filename;
-                    //         $children->img = "false";
-                    //         $children->text = $image->description;
-                    //         $children->save();
-                    //     }
-                    // }
-                }
+                    $story->save();
+                    if($gallery){
+                        foreach($images as $image){
+                            $children = new StoryChildrensModel;
+                            $children->gid = $story->id;
+                            $children->path = "https://kolicky.cz/".$gallery[0]->path."/".$image->filename;
+                            $children->img = "false";
+                            $children->text = $image->description;
+                            $children->save();
+                        }
+                    }
+                
             }
         }
-
-        echo $stories."<br />";
-        echo $stories2;
     }
 
 
