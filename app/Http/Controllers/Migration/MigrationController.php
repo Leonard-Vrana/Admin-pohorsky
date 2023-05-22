@@ -141,7 +141,7 @@ class MigrationController extends Controller
     }
 
     public function migrateImages(){
-        $images = StoryChildrensModel::all()->where("img", "false")->take(5);
+        $images = StoryChildrensModel::all()->where("img", "false");
         foreach($images as $image){
             try {
                 $randomName = Str::random(40) . '.jpg';
@@ -150,7 +150,7 @@ class MigrationController extends Controller
                 $image->path = 'storage/imgs/'.$randomName.'.jpg';
                 $image->img = 'storage/imgs/'.$randomName.'.jpg';
                 if($image->save()){
-    
+                    dd($image->id);
                 }
             } catch(Exception $e){
             }
