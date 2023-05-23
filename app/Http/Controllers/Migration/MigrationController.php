@@ -146,27 +146,27 @@ class MigrationController extends Controller
             try {
                 $randomName = Str::random(40) . '.jpg';
                 $contents = file_get_contents($image->path);
-                Storage::put('public/storage/imgs/' . $randomName, $contents);
-                $image->path = 'storage/imgs/'.$randomName.'.jpg';
-                $image->img = 'storage/imgs/'.$randomName.'.jpg';
+                Storage::put('public/storage/imgs/'.$image->gid.'/' . $randomName, $contents);
+                $image->path = '/storage/imgs/'.$image->gid.'/'.$randomName.'';
+                $image->img = '/storage/imgs/'.$image->gid.'/'.$randomName.'';
                 if($image->save()){
-                    dd($image->id);
                 }
             } catch(Exception $e){
             }
         }
     }
 
-    public function rand(){
-        $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk")->where("domain", 'LIKE', '%"'.'storage/'.'"%');;
-        foreach($stories as $story){
-            $gallery = StoryChildrensModel::all()->where("gid", $story->id);
-            foreach($gallery as $gallery){
-                $gallery->path = "storage/imgs/".$gallery->path;
-                $gallery->save();
-            }
-        }
-    }
+    // public function rand(){
+    //     $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk");
+    //     foreach($stories as $story){
+    //         $gallery = StoryChildrensModel::all()->where("gid", $story->id);
+    //         foreach($gallery as $gallery){
+    //             $gallery->path = "/".$gallery->path;
+    //             $gallery->img = "/".$gallery->img;
+    //             $gallery->save();
+    //         }
+    //     }
+    // }
 
     public function deleteSK(){
         $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk");

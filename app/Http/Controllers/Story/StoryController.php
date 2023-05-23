@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\DB;
 class StoryController extends Controller
 {
     public function view(){
-        if(!isset($_GET["itemPerPage"]) || $_GET["itemPerPage"] == 50){
+        if(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 50){
             $itemsPerPage = 50;
-        } elseif(!isset($_GET["itemPerPage"]) || $_GET["itemPerPage"] == 100){
+        } elseif(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 100){
             $itemsPerPage = 100;
         } else {
             $itemsPerPage = 25;
