@@ -146,6 +146,12 @@
                             <input type="text" name="language" id="language" value="{{ $story->language }}">
                         </div>
                     </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="flex flex-col">
+                            <label for="note">Poznámka</label>
+                            <input type="text" name="note" id="note" value="{{ $story->note }}">
+                        </div>
+                    </div>
                 </div>
                 <div class="flex justify-between items-center mt-4">
                     <div class="flex items-center whitespace-nowrap gap-3">

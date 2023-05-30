@@ -338,4 +338,17 @@ class MigrationController extends Controller
         }        
     }
 
+    public function reworkYears(){
+        $stories = StoryModel::all();
+        foreach($stories as $story){
+            if($story->year == 80 || $story->year == 70 || $story->year == 60){
+                $story->year = "19".$story->year;
+                $story->note = $story->note." + "."výroba ".$story->year."léta";
+                if($story->save()){
+                    
+                }
+            }
+        }
+    }
+
 }
