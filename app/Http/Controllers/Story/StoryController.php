@@ -39,6 +39,7 @@ class StoryController extends Controller
         }
 
         $filterStories = $stories->paginate($itemsPerPage);
+        $filterStories->appends(request()->except('page'));
         return view("pages.Story.index")
                ->with("stories", $filterStories)
                ->with("countStories", $filterStories->total());
