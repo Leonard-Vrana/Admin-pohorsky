@@ -14,7 +14,7 @@
                 <button class="btn-primary modal" data-name="addUser">Přidat užívatela</button>
             </div>
         </div>
-
+ 
     <div>
         <table class="w-full whitespace-no-wrap">
             <thead>
