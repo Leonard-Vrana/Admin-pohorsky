@@ -17,28 +17,28 @@ class TermDeleteController extends Controller
         if($r->id && $r->termType){
             if($r->termType == "storyMaker"){
                 if($this->deleteStoryMaker($r->id)){
-                    flash("Autor bol úspešne vymazaný")->success();
+                    flash("Autor byl úspěšně vymazán")->success();
                 }
             } elseif($r->termType == "artAuthor"){
                 if($this->deleteStoryArtAuthor($r->id)){
-                    flash("Autor bol úspešne vymazaný")->success();
+                    flash("Autor byl úspěšně vymazán")->success();
                 }
             } elseif($r->termType == "templateAuthor"){
                 if($this->deleteTemplateAuthor($r->id)){
-                    flash("Autor bol úspešne vymazaný")->success();
+                    flash("Autor byl úspěšně vymazán")->success();
                 }
             } elseif($r->termType == "textAuthor"){
                 if($this->deleteTextAuthor($r->id)){
-                    flash("Autor bol úspešne vymazaný")->success();
+                    flash("Autor byl úspěšně vymazán")->success();
                 }
             } elseif($r->termType == "publisher"){
                 if($this->deletePublisher($r->id)){
-                    flash("Položka bola úspešne vymazaná")->success();
+                    flash("Položka byla úspěšně vymazána")->success();
                 }
             }
             return back();
         }
-        flash("Niekde nastala chyba")->error();
+        flash("Někde nastala chyba")->error();
         return back();
     }
 
@@ -52,7 +52,7 @@ class TermDeleteController extends Controller
                 }
             }
         }
-        flash("Autor sa nepodaril vymazať")->error();
+        flash("Autor se nepodařil vymazat")->error();
         return false;
     }
 
@@ -66,7 +66,7 @@ class TermDeleteController extends Controller
                 }
             }
         }
-        flash("Autor sa nepodaril vymazať")->error();
+        flash("Autor se nepodařil vymazat")->error();
         return false;
     }
 
@@ -80,7 +80,7 @@ class TermDeleteController extends Controller
                 }
             }
         }
-        flash("Autor sa nepodaril vymazať")->error();
+        flash("Autor se nepodařil vymazat")->error();
         return false;
     }
 
@@ -94,7 +94,7 @@ class TermDeleteController extends Controller
                 }
             }
         }
-        flash("Autor sa nepodaril vymazať")->error();
+        flash("Autor se nepodařil vymazat")->error();
         return false;
     }
 
@@ -108,7 +108,7 @@ class TermDeleteController extends Controller
                 }
             }
         }
-        flash("Položka sa nepodarila vymazať")->error();
+        flash("Položka se nepodařila vymazat")->error();
         return false;
     }
 }

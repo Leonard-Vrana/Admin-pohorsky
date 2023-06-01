@@ -17,7 +17,7 @@ class MenuController extends Controller
             flash("Nemáte vybraný projekt!")->error();
             return redirect(route("homepage"));
         }
-        flash("Niekde sa nastala chyba")->error();
+        flash("Někde se nastala chyba")->error();
         return back();
     }
 
@@ -28,11 +28,11 @@ class MenuController extends Controller
             $menu->name = $r->name;
             $menu->url = $r->url;
             if($menu->save()){
-                flash("Položka do menu bola úspešne pridaná")->success();
+                flash("Položka do menu byla úspěšně přidána")->success();
                 return back();
             }
         }
-        flash("Niekde sa nastala chyba")->error();
+        flash("Někde se nastala chyba")->error();
         return back();
     }
 
@@ -43,12 +43,12 @@ class MenuController extends Controller
                 $menu->name = $r->name;
                 $menu->url = $r->url;
                 if($menu->save()){
-                    flash("Položka v menu bola úspešne upravená")->success();
+                    flash("Položka v menu byla úspěšně upravena")->success();
                     return back();
                 }
             }
         }
-        flash("Niekde sa nastala chyba")->error();
+        flash("Někde se nastala chyba")->error();
         return back();
     }
 
@@ -57,12 +57,12 @@ class MenuController extends Controller
             $menu = MenuModel::all()->where("id", $r->id)->first();
             if($menu){
                 if($menu->delete()){
-                    flash("Položka bola úspešne vymazaná")->success();
+                    flash("Položka byla úspěšně vymazána")->success();
                     return back();
                 }
             }
         }
-        flash("Niekde sa nastala chyba")->error();
+        flash("Někde se nastala chyba")->error();
         return back();
     }
 }

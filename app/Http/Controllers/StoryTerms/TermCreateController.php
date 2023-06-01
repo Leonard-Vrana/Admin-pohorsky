@@ -16,28 +16,28 @@ class TermCreateController extends Controller
         if($r->termType && $r->nameAuthor){
             if($r->termType == "storyMaker"){
                 if($this->createStoryMaker($r->nameAuthor)){
-                    flash("Autor bol úspešne pridaný")->success();
+                    flash("Autor byl úspěšně přidán")->success();
                 }
             } elseif($r->termType == "artAuthor"){
                 if($this->createStoryArtAuthor($r->nameAuthor)){
-                    flash("Autor bol úspešne pridaný")->success();
+                    flash("Autor byl úspěšně přidán")->success();
                 }
             } elseif($r->termType == "templateAuthor"){
                 if($this->createTemplateAuthor($r->nameAuthor)){
-                    flash("Autor bol úspešne pridaný")->success();
+                    flash("Autor byl úspěšně přidán")->success();
                 }
             } elseif($r->termType == "textAuthor"){
                 if($this->createTextAuthor($r->nameAuthor)){
-                    flash("Autor bol úspešne pridaný")->success();
+                    flash("Autor byl úspěšně přidán")->success();
                 }
             } elseif($r->termType == "publisher"){
                 if($this->createPublisher($r->nameAuthor)){
-                    flash("Položka bola úspešne pridaná")->success();
+                    flash("Položka byla úspěšně přidána")->success();
                 }
             }
             return back();
         }
-        flash("Niekde nastala chyba")->error();
+        flash("Někde nastala chyba")->error();
         return back();
     }
 
@@ -49,7 +49,7 @@ class TermCreateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril vytvoriť");
+        flash("Autor se nepodařil vytvořit");
         return back();
     }
 
@@ -61,7 +61,7 @@ class TermCreateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril vytvoriť");
+        flash("Autor se nepodařil vytvořit");
         return back();
     }
 
@@ -73,7 +73,7 @@ class TermCreateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril vytvoriť");
+        flash("Autor se nepodařil vytvořit");
         return back();
     }
 
@@ -85,7 +85,7 @@ class TermCreateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril vytvoriť");
+        flash("Autor se nepodařil vytvořit");
         return back();
     }
 
@@ -97,7 +97,7 @@ class TermCreateController extends Controller
                 return true;
             }
         }
-        flash("Položka sa nepodarila vytvoriť");
+        flash("Položka se nepodařila vytvořit");
         return back();
     }
 }

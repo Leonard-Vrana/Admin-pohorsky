@@ -92,10 +92,10 @@ class StoryCreateController extends Controller
             $story->onlyUser = true;
         }
         if($story->save()){
-            flash("Položka bola úspešne pridaná")->success();
+            flash("Položka byla úspěšně přidána")->success();
             return redirect(route("admin-storyEditView", $story->id));
         }
-        flash("Niečo sa pokazilo!")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 }

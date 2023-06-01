@@ -12,17 +12,17 @@ class DomainController extends Controller
         $project = ProjectModel::all()->where("id", $projectId)->first();
         if($project){
             session()->put('domain', $project->value);
-            flash("Prepnutue projektu bolo úspešné")->success();
+            flash("Přepnutí projektu bylo úspěšné")->success();
             return back();
         }
-        flash("Prepnutie projektu sa nepodarilo!")->error();
+        flash("Přepnutí projektu se nepodařilo!")->error();
         return back();
     }
 
     public function resetDomain(){
         $session = session();
         $session->forget('domain');
-        flash("Prepnutue projektu bolo úspešné")->success();
+        flash("Přepnutí projektu bylo úspěšné")->success();
         return back();
     }
 }

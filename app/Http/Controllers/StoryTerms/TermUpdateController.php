@@ -16,28 +16,28 @@ class TermUpdateController extends Controller
         if($r->id && $r->termType && $r->nameAuthor){
             if($r->termType == "storyMaker"){
                 if($this->updateStoryMaker($r->id, $r->nameAuthor)){
-                    flash("Autor bol úspešne upravený")->success();
+                    flash("Autor byl úspěšně upraven")->success();
                 }
             } elseif($r->termType == "artAuthor"){
                 if($this->updateStoryArtAuthor($r->id, $r->nameAuthor)){
-                    flash("Autor bol úspešne upravený")->success();
+                    flash("Autor byl úspěšně upraven")->success();
                 }
             } elseif($r->termType == "templateAuthor"){
                 if($this->updateTemplateAuthor($r->id, $r->nameAuthor)){
-                    flash("Autor bol úspešne upravený")->success();
+                    flash("Autor byl úspěšně upraven")->success();
                 }
             } elseif($r->termType == "textAuthor"){
                 if($this->updateTextAuthor($r->id, $r->nameAuthor)){
-                    flash("Autor bol úspešne upravený")->success();
+                    flash("Autor byl úspěšně upraven")->success();
                 }
             } elseif($r->termType == "publisher"){
                 if($this->updatePublisher($r->id, $r->nameAuthor)){
-                    flash("Položka bola upravená")->success();
+                    flash("Položka byla upravena")->success();
                 }
             }
             return back();
         }
-        flash("Niekde nastala chyba")->error();
+        flash("Někde nastala chyba")->error();
         return back();
     }
 
@@ -49,7 +49,7 @@ class TermUpdateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril upraviť");
+        flash("Autor se nepodařil upravit");
         return back();
     }
 
@@ -61,7 +61,7 @@ class TermUpdateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril upraviť");
+        flash("Autor se nepodařil upravit");
         return back();
     }
 
@@ -73,7 +73,7 @@ class TermUpdateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril upraviť");
+        flash("Autor se nepodařil upravit");
         return back();
     }
 
@@ -85,7 +85,7 @@ class TermUpdateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril upraviť");
+        flash("Autor se nepodařil upravit");
         return back();
     }
 
@@ -97,7 +97,7 @@ class TermUpdateController extends Controller
                 return true;
             }
         }
-        flash("Autor sa nepodaril upraviť");
+        flash("Položka se nepodařila upravit");
         return back();
     }
 }

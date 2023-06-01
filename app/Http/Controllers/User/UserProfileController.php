@@ -20,12 +20,12 @@ class UserProfileController extends Controller
                 $user = User::all()->where("id", Auth::id())->first();
                 $user->password = Hash::make($r->password);
                 if($user->save()){
-                    flash("Heslo bolo úspešne aktualizované")->success();
+                    flash("Heslo bylo úspěšně aktualizováno")->success();
                     return back();
                 }
             }
         }
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 }

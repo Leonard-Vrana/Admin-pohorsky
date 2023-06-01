@@ -19,7 +19,7 @@ class CompanyController extends Controller
             if($company){
                 $company->value = $r->value;
                 if($company->save()){
-                    flash("Položka bola aktualizovaná")->success();
+                    flash("Položka byla aktualizována")->success();
                     return back();
                 }
             }

@@ -23,12 +23,12 @@ class StoryDeleteController extends Controller
                     $children->delete();
                 }
                 if($story->delete()){
-                    flash("Položka bola vymazaná")->success();
+                    flash("Položka byla vymazána")->success();
                     return back();
                 }
             }
         }
-        flash("Niekde nastala chyba")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 }

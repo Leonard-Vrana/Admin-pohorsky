@@ -103,11 +103,11 @@ class StoryUpdateController extends Controller
                 $story->onlyUser = false;
             }
             if($story->save()){
-                flash("Položka bola úspešne upravená")->success();
+                flash("Položka byla úspěšně upravena")->success();
                 return redirect(route("admin-storyEditView", $story->id));
             }
         }
-        flash("Niečo sa pokazilo!")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 
@@ -121,11 +121,11 @@ class StoryUpdateController extends Controller
             $image->img = "/storage/images/".$randomName;
             $image->path = "/storage/images/".$randomName;
             if($image->save()){
-                flash("Obrázok bol úspešne pridaný")->success();
+                flash("Obrázek byl úspěšně přidán")->success();
                 return back();
             }
         }
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 
@@ -136,14 +136,14 @@ class StoryUpdateController extends Controller
                 $file = public_path($gallery->path);
                 if(file_exists($file)){
                     if(unlink($file) && $gallery->delete()){
-                        flash("Obrázok bol úspešne vymazaný")->success();
+                        flash("Obrázek byl úspěšně vymazán")->success();
                         return back();
                     }
                 }
             }
         }
 
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 
@@ -162,11 +162,11 @@ class StoryUpdateController extends Controller
                 $image->path = "/storage/images/".$randomName;
             }
             if($image->save()){
-                flash("Obrázok bol úspešne upravený")->success();
+                flash("Obrázek byl úspěšně upraven")->success();
                 return back();
             }
         }
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 }

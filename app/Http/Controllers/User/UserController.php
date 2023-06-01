@@ -23,17 +23,17 @@ class UserController extends Controller
             $user = User::all()->where("id", $r->id)->first();
             if($user){
                 if($user->id == Auth::id()){
-                    flash("Nemôžeš vymazať sám seba...")->error();
+                    flash("Nemůžeš vymazat sám sebe...")->error();
                     return back();
                 } else {
                     if($user->delete()){
-                        flash("Užívateľ bol úspešne vymazaný")->success();
+                        flash("Uživatel byl úspěšně vymazán")->success();
                         return back();
                     }
                 }
             }
         }
-        flash("Niečo sa nepodarilo")->error();
+        flash("Něco se nepodařilo")->error();
         return back();
     }
 
@@ -48,12 +48,12 @@ class UserController extends Controller
                     $user->role = false;
                 }
                 if($user->save()){
-                    flash("Uživatel bol úspešne upravený")->success();
+                    flash("Uživatel byl úspěšně upraven")->success();
                     return back();
                 }
             }
         }
-        flash("Niečo sa nepodarilo")->error();
+        flash("Něco se nepodařilo")->error();
         return back();
     }
 
@@ -72,12 +72,12 @@ class UserController extends Controller
                 }
                 if($user->save()){
                     Mail::to($r->email)->send(new CreateUser($r->email, $password));
-                    flash("Uživatel bol úspešne pridaný")->success();
+                    flash("Uživatel byl úspěšně přidán")->success();
                     return back();
                 }
             }
         }
-        flash("Niečo sa nepodarilo")->error();
+        flash("Něco se nepodařilo")->error();
         return back(); 
     }
 

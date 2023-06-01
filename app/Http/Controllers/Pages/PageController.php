@@ -38,11 +38,11 @@ class PageController extends Controller
             $page->text = $r->content;
             $page->domain = json_encode($r->projects);
             if($page->save()){
-                flash("Stránka bola úspešne pridaná")->success();
+                flash("Stránka byla úspěšně přidána")->success();
                 return back();
             }
         }
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 
@@ -54,12 +54,12 @@ class PageController extends Controller
                 $page->text = $r->content;
                 $page->domain = json_encode($r->projects);
                 if($page->save()){
-                    flash("Stránka bola úspešne upravená")->success();
+                    flash("Stránka byla úspěšně upravena")->success();
                     return back();
                 }
             }
         }
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 
@@ -68,12 +68,12 @@ class PageController extends Controller
             $page = PageModel::all()->where("id", $r->id)->first();
             if($page){
                 if($page->delete()){
-                    flash("Stránka bola úspešne vymazaná")->success();
+                    flash("Stránka byla úspěšně vymazána")->success();
                     return back();
                 }
             }
         }
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 }

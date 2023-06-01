@@ -55,11 +55,11 @@ class StoryController extends Controller
                 $story->public = true;
             }
             if($story->save()){
-                flash("Publicita bola úspešne zmenená")->success();
+                flash("Publicita byla úspěšně změněna")->success();
                 return back();
             }
         }
-        flash("Niečo sa pokazilo")->error();
+        flash("Něco se pokazilo")->error();
         return back();
     }
 }
