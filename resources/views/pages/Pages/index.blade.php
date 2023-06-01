@@ -1,12 +1,12 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Pages ',
+	'pageTitle' => 'Stránky ',
 ])
 
 @section("main")
 	<section>
         <div class="flex justify-between items-center">
             <h1 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Stránky</h1>
-            <a href="{{ route("admin-addPage") }}" class="btn-primary">Pridat</a>
+            <a href="{{ route("admin-addPage") }}" class="btn-primary">Přidat položku</a>
         </div>
 
 		<table class="w-full whitespace-no-wrap">
@@ -16,7 +16,7 @@
                 >
                   <th class="px-4 py-3">#ID</th>
                   <th class="px-4 py-3">Domény</th>
-                  <th class="px-4 py-3">Názov</th>
+                  <th class="px-4 py-3">Název</th>
                   <th class="px-4 py-3">Akcia</th>
                 </tr>
               </thead>

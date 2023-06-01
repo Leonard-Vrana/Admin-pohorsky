@@ -1,5 +1,5 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Add page ',
+	'pageTitle' => 'Přidání stránky ',
 ])
 
 @section("main")
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="flex justify-end items-center mt-4">
-                    <button type="submit" class="btn-primary">Upraviť</button>
+                    <button type="submit" class="btn-primary">Upravit</button>
                 </div>
             </form>
         </div>

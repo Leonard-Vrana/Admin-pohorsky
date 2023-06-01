@@ -8,7 +8,7 @@
     @endphp
     <section>
         <div class="flex justify-between items-center">
-            <h1 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Upravenie položky v tabulke Stories</h1>
+            <h1 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Upravení položky v tabulce Stories</h1>
             <form method="post" action="{{ route("admin-storyPublicCMD") }}">
                 @csrf
                 <input type="hidden" name="id" value="{{ $story->id }}" />
@@ -22,11 +22,11 @@
                 <input type="hidden" name="id" value="{{ $story->id }}" />
                 <div class="flex flex-col gap-3">
                     <div class="flex flex-col">
-                        <label for="title">Názov</label>
+                        <label for="title">Název</label>
                         <input type="text" id="title" value="{{ $story->title }}" name="title">
                     </div>
                     <div class="flex flex-col">
-                        <label for="title">Projekty na ktorých sa zobrazí táto položka</label>
+                        <label for="title">Projekty na kterých se zobrazí tato položka</label>
                         <select multiple name="projects[]">
                             @foreach ($projects as $project)
                             <option value="{{ $project->value }}" @if(in_array($project->value , $storyProject)) selected @endif>{{ $project->project }}</option>
@@ -34,7 +34,7 @@
                         </select>
                     </div>
                     <div class="flex flex-col">
-                        <label for="img">Náhladový obrázok (URL)</label>
+                        <label for="img">Náhledový obrázek (URL)</label>
                         <input type="text" id="img" name="img" value="{{ $story->img }}">
                     </div>
                     <div class="grid lg:grid-cols-4 grid-cols-1 gap-3">

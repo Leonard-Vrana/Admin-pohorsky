@@ -38,7 +38,7 @@
                 href="{{ route("admin-story") }}"
               >
                 <i class="fa-solid fa-paw"></i>
-                <span class="ml-4">Stories</span>
+                <span class="ml-4">Diafilmy</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -47,7 +47,7 @@
                 href="{{ route("admin-storyTerms", "maker") }}"
               >
                 <i class="fa-solid fa-paw"></i>
-                <span class="ml-4">Story Terms</span>
+                <span class="ml-4">Kategorie</span>
               </a>
             </li>
             <li class="relative px-6 py-3">

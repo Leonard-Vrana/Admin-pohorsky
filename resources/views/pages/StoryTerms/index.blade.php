@@ -19,7 +19,7 @@
 			<a href="{{ route("admin-storyTerms", "publisher") }}" class="btn-primary {{ $type == "publisher" ? "selected" : null }}">Vydavatel</a>
 		  </div>
 		  <div>
-			<button class="btn-primary modal" data-name="addTerm" data-termtype="{{ $type }}">Pridať položku</button>
+			<button class="btn-primary modal" data-name="addTerm" data-termtype="{{ $type }}">Přidat položku</button>
 		  </div>
 	  </div>
 

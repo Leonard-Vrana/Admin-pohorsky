@@ -47,7 +47,7 @@
 				<th class="px-4 py-3">Jazyk</th>
 				<th class="px-4 py-3">Only User</th>
 				<th></th>
-				<th class="px-4 py-3">Actions</th>
+				<th class="px-4 py-3">Akce</th>
 			  </tr> 
 			</thead>
 			<tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">

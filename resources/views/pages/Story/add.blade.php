@@ -4,18 +4,18 @@
 
 @section("main")
     <section>
-        <h1 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Vytvorenie položky v tabulke Stories</h1>
+        <h1 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Vytvoření položky v tabulce Stories</h1>
 
         <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-white inputs">
             <form method="post" action="{{ route("admin-storyAddCMD") }}">
                 @csrf
                 <div class="flex flex-col gap-3">
                     <div class="flex flex-col">
-                        <label for="title">Názov</label>
+                        <label for="title">Název</label>
                         <input type="text" id="title" name="title">
                     </div>
                     <div class="flex flex-col">
-                        <label for="title">Projekty na ktorých sa zobrazí táto položka</label>
+                        <label for="title">Projekty na kterých se zobrazí tato položka</label>
                         <select multiple name="projects[]">
                             @foreach ($projects as $project)
                             <option value="{{ $project->value }}">{{ $project->project }}</option>
@@ -23,7 +23,7 @@
                         </select>
                     </div>
                     <div class="flex flex-col">
-                        <label for="img">Náhladový obrázok (URL)</label>
+                        <label for="img">Náhledový obrázek (URL)</label>
                         <input type="text" id="img" name="img">
                     </div>
                     <div class="grid lg:grid-cols-4 grid-cols-1 gap-3">

@@ -6,7 +6,7 @@
 	<section>
         <div class="flex justify-between items-center">
             <h1 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Položky v menu</h1>
-            <button class="btn-primary modal" data-name="addMenu">Pridat</button>
+            <button class="btn-primary modal" data-name="addMenu">Přidat</button>
         </div>
 
 		<table class="w-full whitespace-no-wrap">
@@ -16,9 +16,9 @@
                 >
                   <th class="px-4 py-3">#ID</th>
                   <th class="px-4 py-3">Doména</th>
-                  <th class="px-4 py-3">Názov</th>
+                  <th class="px-4 py-3">Název</th>
                   <th class="px-4 py-3">Url</th>
-				  <th class="px-4 py-3">Akcia</th>
+				  <th class="px-4 py-3">Akce</th>
                 </tr>
               </thead>
 			<tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">

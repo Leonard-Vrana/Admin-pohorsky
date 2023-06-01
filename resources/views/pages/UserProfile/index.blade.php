@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <button type="submit" class="btn-primary">Zmeniť</button>
+                    <button type="submit" class="btn-primary">Zmenit</button>
                 </div>
             </form>
         </div>
