@@ -9,7 +9,7 @@
                 <div class="mt-4 mb-6">
                   <!-- Modal title -->
                   <p class="mb-2 text-lg font-semibold text-gray-700 dark:text-gray-300 text-center">
-                    Upravenie autora
+                    Upravení autora
                   </p>
                   <!-- Modal description -->
                   <p class="text-xl text-gray-700 dark:text-gray-400 text-center">
@@ -18,7 +18,7 @@
                 </div>
                 <footer class="flex flex-col items-center justify-center px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
                   <button type="submit" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                    Upraviť
+                    Upravit
                   </button>
                 </footer>
               </div>
