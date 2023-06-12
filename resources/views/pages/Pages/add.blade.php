@@ -1,5 +1,5 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Add page ',
+	'pageTitle' => 'Přidat stránku ',
 ])
 
 @section("main")

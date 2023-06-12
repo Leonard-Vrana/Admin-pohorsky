@@ -1,5 +1,5 @@
 @extends('layouts.empty',[
-	'pageTitle' => 'User login ',
+	'pageTitle' => 'Zabudnuté heslo ',
 ])
 
 @section("body")

@@ -1,5 +1,5 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Company setting ',
+	'pageTitle' => 'Nastavení webu ',
 ])
 
 @section("main")

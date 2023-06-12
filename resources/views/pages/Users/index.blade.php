@@ -1,5 +1,5 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Users ',
+	'pageTitle' => 'Uživatelé ',
 ])
 
 @section("main")

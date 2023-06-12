@@ -26,11 +26,11 @@
                 <input type="hidden" name="id" value="{{ $page->id }}" />
                 <div class="flex flex-col gap-3">
                     <div class="flex flex-col">
-                        <label for="title">Názov</label>
+                        <label for="title">Název</label>
                         <input type="text" id="title" name="title" value="{{ $page->title }}">
                     </div>
                     <div class="flex flex-col">
-                        <label for="title">Projekty na ktorých sa zobrazí táto položka</label>
+                        <label for="title">Projekty na kterých se zobrazí tato položka</label>
                         <select multiple name="projects[]">
                             @foreach ($projects as $project)
                             <option value="{{ $project->value }}" @if(in_array($project->value , $pageProject)) selected @endif>{{ $project->project }}</option>
