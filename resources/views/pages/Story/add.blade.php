@@ -1,5 +1,5 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Add Story ',
+	'pageTitle' => 'Přidat diafilm ',
 ])
 
 @section("main")
@@ -70,13 +70,13 @@
                             <input type="text" id="year" name="year">
                         </div>
                         <div class="flex flex-col">
-                            <label for="lenght">Dĺžka</label>
+                            <label for="lenght">Délka</label>
                             <input type="text" id="lenght" name="lenght">
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
                         <div class="flex flex-col">
-                            <label for="annotation">Anotácia</label>
+                            <label for="annotation">Anotace</label>
                             <input type="text" name="annotation" id="annotation">
                         </div>
                         <div class="flex flex-col">
@@ -138,7 +138,7 @@
                 <div class="flex justify-between items-center mt-4">
                     <div class="flex items-center whitespace-nowrap gap-3">
                         <input type="checkbox" id="onlyUser" name="onlyUser">
-                        <label for="onlyUser" style="padding-bottom: 0px !important;">Zobrazit prvých 5 obrázku</label>
+                        <label for="onlyUser" style="padding-bottom: 0px !important;">Zobrazit prvních 5 obrázku</label>
                     </div>
                     <button class="btn-primary" type="submit">Přidat</button>
                 </div>

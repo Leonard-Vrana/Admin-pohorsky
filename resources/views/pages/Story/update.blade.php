@@ -1,5 +1,5 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Edit Story',
+	'pageTitle' => 'Upraveni diafilmu',
 ])
 
 @section("main")
@@ -81,13 +81,13 @@
                             <input type="text" id="year" name="year" value="{{ $story->year }}">
                         </div>
                         <div class="flex flex-col">
-                            <label for="lenght">Dĺžka</label>
+                            <label for="lenght">Délka</label>
                             <input type="text" id="lenght" name="lenght" value="{{ $story->lenght }}">
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
                         <div class="flex flex-col">
-                            <label for="annotation">Anotácia</label>
+                            <label for="annotation">Anotace</label>
                             <input type="text" name="annotation" id="annotation" value="{{ $story->annotation }}">
                         </div>
                         <div class="flex flex-col">
@@ -156,9 +156,9 @@
                 <div class="flex justify-between items-center mt-4">
                     <div class="flex items-center whitespace-nowrap gap-3">
                         <input type="checkbox" id="onlyUser" name="onlyUser" @if($story->onlyUser) checked @endif>
-                        <label for="onlyUser" style="padding-bottom: 0px !important;">Zobrazit prvých 5 obrázku</label>
+                        <label for="onlyUser" style="padding-bottom: 0px !important;">Zobrazit prvních 5 obrázku</label>
                     </div>
-                    <button class="btn-primary" type="submit">Upraviť</button>
+                    <button class="btn-primary" type="submit">Upravit</button>
                 </div>
             </form>
         </div>
@@ -166,8 +166,8 @@
 
     <section class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-white inputs mt-5">
         <div class="flex justify-between items-center">
-            <h2 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">Galéria</h2>
-            <button class="btn-primary modal" data-name="addImage" data-id="{{ $story->id }}">Pridať</button>
+            <h2 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">Galerie</h2>
+            <button class="btn-primary modal" data-name="addImage" data-id="{{ $story->id }}">Pridat</button>
         </div>
         <div class="table w-full"> 
             <table class="w-full whitespace-no-wrap">
@@ -224,7 +224,7 @@
 
     <section class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-white inputs mt-5">
         <div class="flex justify-between items-center">
-            <h2 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">Poznámky uživatelov</h2>
+            <h2 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">Poznámky uživatelů</h2>
         </div>
         <div class="table w-full"> 
             <table class="w-full whitespace-no-wrap">

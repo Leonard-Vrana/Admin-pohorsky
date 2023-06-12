@@ -1,5 +1,5 @@
 @extends('layouts.main',[
-	'pageTitle' => 'Stories ',
+	'pageTitle' => 'Diafilmy ',
 ])
 
 @section("main")
@@ -209,7 +209,7 @@
 		<form method="post" action="{{ route("admin-importCsv") }}" enctype="multipart/form-data">
 			@csrf
 			<input class="text-gray-700 dark:text-gray-200" type="file" name="csv" />
-			<button class="btn-primary w-fit" type="submit">Importovať</button>
+			<button class="btn-primary w-fit" type="submit">Importovat</button>
 		</form>
 	</div>
 @endsection
