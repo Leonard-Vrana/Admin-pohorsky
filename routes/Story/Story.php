@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
         Route::post('server/story/update', 'App\Http\Controllers\Story\StoryUpdateController@update')->name('admin-storyUpdateCMD');
         Route::post('server/story/delete', 'App\Http\Controllers\Story\StoryDeleteController@delete')->name('admin-storyDeleteCMD');
         Route::post('server/story/public', 'App\Http\Controllers\Story\StoryController@changePublic')->name('admin-storyPublicCMD');
+        Route::post('story/import/csv', 'App\Http\Controllers\Story\StoryController@importCsv')->name('admin-importCsv');
 
         // Story Gallery
 

@@ -12,7 +12,7 @@
 			  <small>@if(session()->get('domain')) Z projektu {{ session()->get('domain') }} @endif</small>
 			</div>
 			<div>
-				<a href="{{ route("admin-storyAddView") }}" class="btn-primary">Pridať položku</a>
+				<a href="{{ route("admin-storyAddView") }}" class="btn-primary">Přidat položku</a>
 			</div>
 		</div>
 
@@ -204,6 +204,14 @@
 			</span>
 		</div>
 	</section>
+	<div class="flex flex-col gap-3 mt-4">
+		<h2 class="text-gray-700 dark:text-gray-200">Import CSV</h2>
+		<form method="post" action="{{ route("admin-importCsv") }}" enctype="multipart/form-data">
+			@csrf
+			<input class="text-gray-700 dark:text-gray-200" type="file" name="csv" />
+			<button class="btn-primary w-fit" type="submit">Importovať</button>
+		</form>
+	</div>
 @endsection
 
 @push('modals')

@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Story\StoryModel;
 use Illuminate\Support\Facades\DB;
+use League\Csv\Reader;
+use Illuminate\Support\Str;
+
 
 class StoryController extends Controller
 {
@@ -62,4 +65,38 @@ class StoryController extends Controller
         flash("Něco se pokazilo")->error();
         return back();
     }
+
+
+    public function importCsv(Request $r){
+        if ($r->hasFile('csv')) {
+            $file = $r->file('csv');
+            // Vytvorenie čítača pre CSV súbor
+            $csv = Reader::createFromPath($file->getPathname(), 'r');
+            $csv->setDelimiter(',');
+            $csv->setHeaderOffset(0);
+            
+            $records = $csv->getRecords(['ID', 'Skladem (pocet kusu)', 'URL']);
+            
+            foreach ($records as $record) {
+                $id = $record['ID'];
+                $skladem = $record['Skladem (pocet kusu)'];
+                $url = 'https://www.diacek.eu'.Str::before($record['URL'], '|');
+
+                $story = StoryModel::all()->where("id", $id)->first();
+                if($story){
+                    $story->eshop_url = $url;
+                    $story->eshop_storage = $skladem;
+                    if($story->save()){
+
+                    }
+                }
+            }
+
+            flash("Import proběhl úspěšně")->success();
+            return back();
+        }
+        flash("Něco se pokazilo")->error();
+        return back();
+    }
+
 }

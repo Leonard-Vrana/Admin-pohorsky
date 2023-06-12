@@ -40,6 +40,8 @@ return new class extends Migration
             $table->string("template_author")->nullable();
             $table->string("text_author")->nullable();
             $table->string("marked")->nullable();
+            $table->string("eshop_url")->nullable();
+            $table->string("eshop_storage")->nullable();
             $table->timestamps();
         });
     }
