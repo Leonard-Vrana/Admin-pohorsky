@@ -117,9 +117,9 @@ class StoryUpdateController extends Controller
             $image->gid = $r->id;
             $image->text = $r->text;
             $randomName = $r->file('image')->hashName();
-            $r->file('image')->move(public_path('storage/images'), $randomName);
-            $image->img = "/storage/images/".$randomName;
-            $image->path = "/storage/images/".$randomName;
+            $r->file('image')->move(public_path('storage/imgs/'.$r->id.''), $randomName);
+            $image->img = "/storage/imgs/".$r->id."/".$randomName;
+            $image->path = "/storage/imgs/".$r->id."/".$randomName;
             if($image->save()){
                 flash("Obrázek byl úspěšně přidán")->success();
                 return back();
@@ -157,9 +157,9 @@ class StoryUpdateController extends Controller
                     unlink($file);
                 }
                 $randomName = $r->file('image')->hashName();
-                $r->file('image')->move(public_path('storage/images'), $randomName);
-                $image->img = "/storage/images/".$randomName;
-                $image->path = "/storage/images/".$randomName;
+                $r->file('image')->move(public_path('storage/imgs/'.$r->id.''), $randomName);
+                $image->img = "/storage/imgs/".$r->id."/".$randomName;
+                $image->path = "/storage/imgs/".$r->id."/".$randomName;
             }
             if($image->save()){
                 flash("Obrázek byl úspěšně upraven")->success();
