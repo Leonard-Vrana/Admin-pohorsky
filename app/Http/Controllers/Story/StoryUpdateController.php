@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Story\StoryCreateRequest;
 use App\Models\Projects\ProjectModel;
 use App\Models\Story\StoryChildrensModel;
+use App\Models\Story\StoryLongImagesModel;
 use App\Models\Story\StoryModel;
 use App\Models\StoryTerms\StoryArtAuthorModel;
 use App\Models\StoryTerms\StoryMakerModel;
@@ -28,7 +29,8 @@ class StoryUpdateController extends Controller
                    ->with("templateAuthors", StoryTemplateAuthorModel::all())
                    ->with("textAuthors", StoryTextAuthorModel::all())
                    ->with("projects", ProjectModel::all())
-                   ->with("publishers", StoryPublisherModel::all());
+                   ->with("publishers", StoryPublisherModel::all())
+                   ->with("longImages", StoryLongImagesModel::all()->where("ticket_id", $model->id));
         }
         return redirect(route("admin-story"));
     }

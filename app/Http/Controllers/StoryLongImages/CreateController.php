@@ -10,7 +10,7 @@ class CreateController extends Controller
 {
     public function create(Request $r){
         $image = new StoryLongImagesModel();
-        if($r->text && $r->id){
+        if($r->id){
             $image->ticket_id = $r->id;
             $randomName = $r->file('image')->hashName();
             $r->file('image')->move(public_path('storage/imgs/'.$r->id.''), $randomName);

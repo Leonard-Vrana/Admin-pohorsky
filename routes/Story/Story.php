@@ -38,5 +38,10 @@ Route::middleware('auth')->group(function () {
         Route::post('server/story/terms/delete', 'App\Http\Controllers\StoryTerms\TermDeleteController@delete')->name('admin-storyDeleteTerms');
         Route::post('server/story/terms/update', 'App\Http\Controllers\StoryTerms\TermUpdateController@update')->name('admin-storyUpdateTerms');
         Route::post('server/story/terms/create', 'App\Http\Controllers\StoryTerms\TermCreateController@create')->name('admin-storyCreateTerms');
+
+        // Story long images
+
+        Route::post('server/story/create/longImage', 'App\Http\Controllers\StoryLongImages\CreateController@create')->name('admin-storyCreateLongImage');
+        Route::post('server/story/delete/longImage', 'App\Http\Controllers\StoryLongImages\DeleteController@delete')->name('admin-storyDeleteLongImage');
     });
 });
