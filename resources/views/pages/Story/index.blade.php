@@ -211,7 +211,7 @@
 			<input class="text-gray-700 dark:text-gray-200" type="file" name="csv" />
 			<button class="btn-primary w-fit" type="submit">Importovat</button>
 		</form>
-		<p><a href="/images/priklad.cdv">Príklad</a></p>
+		<p><a href="/images/priklad.csv">Príklad</a></p>
 	</div>
 @endsection
 
