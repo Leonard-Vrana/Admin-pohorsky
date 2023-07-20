@@ -158,7 +158,7 @@
 					</li>
 					<li class="flex items-center">
 						@if ($stories->lastPage() > 1)
-						@if ($stories->currentPage() > 1)
+						@if ($stories->currentPage() > 2)
 							<a href="{{ $stories->url(1) }}" class="px-3 py-1 rounded-md duration-300 hover:outline-none hover:shadow-outline-purple">
 								<span>1</span>
 							</a>
@@ -176,7 +176,7 @@
 						@if ($stories->currentPage() < $stories->lastPage() - 2)
 							<div class="disabled"><span>&hellip;</span></div>
 						@endif
-						@if ($stories->currentPage() < $stories->lastPage())
+						@if ($stories->currentPage() < $stories->lastPage() - 1)
 							<a href="{{ $stories->url($stories->lastPage()) }}" class="px-3 py-1 rounded-md duration-300 hover:outline-none hover:shadow-outline-purple">
 								<span>{{ $stories->lastPage() }}</span>
 							</a>
@@ -205,12 +205,13 @@
 		</div>
 	</section>
 	<div class="flex flex-col gap-3 mt-4">
-		<h2 class="text-gray-700 dark:text-gray-200">Import CSV</h2>
+		<h2 class="text-gray-700 dark:text-gray-200 font-bold">Import CSV</h2>
 		<form method="post" action="{{ route("admin-importCsv") }}" enctype="multipart/form-data">
 			@csrf
 			<input class="text-gray-700 dark:text-gray-200" type="file" name="csv" />
 			<button class="btn-primary w-fit" type="submit">Importovat</button>
 		</form>
+		<p><a href="/images/priklad.cdv">Príklad</a></p>
 	</div>
 @endsection
 

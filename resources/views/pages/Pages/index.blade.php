@@ -93,7 +93,7 @@
 						</a>
 					</li>
 					<li class="flex items-center">
-						@if ($pages->lastPage() > 1)
+						@if ($pages->lastPage() > 2)
 						@if ($pages->currentPage() > 1)
 							<a href="{{ $pages->url(1) }}" class="px-3 py-1 rounded-md duration-300 hover:outline-none hover:shadow-outline-purple">
 								<span>1</span>
@@ -112,7 +112,7 @@
 						@if ($pages->currentPage() < $pages->lastPage() - 2)
 							<div class="disabled"><span>&hellip;</span></div>
 						@endif
-						@if ($pages->currentPage() < $pages->lastPage())
+						@if ($pages->currentPage() < $pages->lastPage() - 1)
 							<a href="{{ $pages->url($pages->lastPage()) }}" class="px-3 py-1 rounded-md duration-300 hover:outline-none hover:shadow-outline-purple">
 								<span>{{ $pages->lastPage() }}</span>
 							</a>
