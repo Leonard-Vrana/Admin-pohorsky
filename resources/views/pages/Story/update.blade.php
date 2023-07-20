@@ -119,7 +119,7 @@
                             <input type="text" name="prop-text" id="prop-text" value="{{ $story['prop-text'] }}">
                         </div>
                         <div class="flex flex-col">
-                            <label for="collection">Text</label>
+                            <label for="collection">Sbírka</label>
                             <input type="text" name="collection" id="collection" value="{{ $story->collection }}">
                         </div>
                         <div class="flex flex-col">

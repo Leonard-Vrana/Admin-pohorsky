@@ -65,7 +65,7 @@ function tinyMce() {
             skin: "oxide-dark",
             content_css: "dark",
             plugins:
-                "searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount charmap quickbars",
+                "searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount charmap quickbars code",
             imagetools_cors_hosts: ["picsum.photos"],
             menubar: "file edit view insert tools table help",
             toolbar:

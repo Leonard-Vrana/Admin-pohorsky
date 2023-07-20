@@ -779,7 +779,7 @@ function tinyMce() {
       selector: "textarea",
       skin: "oxide-dark",
       content_css: "dark",
-      plugins: "searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount charmap quickbars",
+      plugins: "searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount charmap quickbars code",
       imagetools_cors_hosts: ["picsum.photos"],
       menubar: "file edit view insert tools table help",
       toolbar: "undo redo | blocks| bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | removeformat",

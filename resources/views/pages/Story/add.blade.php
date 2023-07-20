@@ -108,7 +108,7 @@
                             <input type="text" name="prop-text" id="prop-text">
                         </div>
                         <div class="flex flex-col">
-                            <label for="collection">Text</label>
+                            <label for="collection">Sbírka</label>
                             <input type="text" name="collection" id="collection">
                         </div>
                         <div class="flex flex-col">
