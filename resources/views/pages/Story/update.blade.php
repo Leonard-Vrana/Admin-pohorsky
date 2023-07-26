@@ -151,6 +151,14 @@
                             <label for="note">Poznámka</label>
                             <input type="text" name="note" id="note" value="{{ $story->note }}">
                         </div>
+                        <div class="flex flex-col">
+                            <label for="photographer">Fotograf</label>
+                            <input type="text" name="photographer" id="photographer" value="{{ $story->photographer }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="school_author">Autor školní</label>
+                            <input type="text" name="school_author" id="school_author" value="{{ $story->school_author }}">
+                        </div>
                     </div>
                 </div>
                 <div class="flex justify-between items-center mt-4">

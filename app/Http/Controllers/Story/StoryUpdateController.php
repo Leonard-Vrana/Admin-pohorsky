@@ -99,6 +99,12 @@ class StoryUpdateController extends Controller
             if($r->lenght){
                 $story->lenght = $r->lenght;
             }
+            if($r->school_author){
+                $story->school_author = $r->school_author;
+            }
+            if($r->photographer){
+                $story->photographer = $r->photographer;
+            }
             if($r->onlyUser){
                 $story->onlyUser = true;
             } else {
