@@ -40,6 +40,17 @@ class StoryController extends Controller
                 }
             });
         }
+        if(!empty($_GET["sort"])){
+            if($_GET["sort"] === "asc"){
+                $stories->orderBy('id', 'asc');
+            } elseif($_GET["sort"] === "desc"){
+                $stories->orderBy('id', 'desc');
+            } elseif($_GET["sort"] === "alphabet_asc"){
+                $stories->orderBy('title', 'asc');
+            } elseif($_GET["sort"] === "alphabet_desc"){
+                $stories->orderBy('title', 'desc');
+            }
+        }
 
         $filterStories = $stories->paginate($itemsPerPage);
         

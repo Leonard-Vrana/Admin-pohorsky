@@ -3,6 +3,12 @@
 ])
 
 @section("main")
+	@php
+		$sort = null;
+		if(!empty($_GET["sort"])){
+			$sort = $_GET["sort"];
+		}
+	@endphp
 	<section>
 		<div class="flex justify-between items-center">
 			<div>
@@ -23,12 +29,22 @@
 					<button type="submit" class="btn-primary">Filtrovat</button>
 				</div>
 				<div class="col-span-1 flex justify-end">
-					<div>
-						<select name="itemPerPage" onchange="this.form.submit()">
-							<option value="25" @if(empty($_GET["itemPerPage"])) selected @endif>25</option>
-							<option value="50" @if(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 50) selected @endif>50</option>
-							<option value="100" @if(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 100) selected @endif>100</option>
-						</select>
+					<div class="flex items-center gap-3">
+						<div>
+							<select name="sort" onchange="location = this.value;">
+								<option @if($sort === "asc") selected @endif value="?<?= http_build_query(array_merge($_GET, array('sort'=>'asc'))) ?>">Podle ID sestupně</option>
+								<option @if($sort === "desc") selected @endif value="?<?= http_build_query(array_merge($_GET, array('sort'=>'desc'))) ?>">Podle ID vzestupně</option>
+								<option @if($sort === "alphabet_asc") selected @endif value="?<?= http_build_query(array_merge($_GET, array('sort'=>'alphabet_asc'))) ?>">Podle abecedy sestupně</option>
+								<option @if($sort === "alphabet_desc") selected @endif value="?<?= http_build_query(array_merge($_GET, array('sort'=>'alphabet_desc'))) ?>">Podle abecedy vzestupně</option>
+							</select>
+						</div>
+						<div>
+							<select name="itemPerPage" onchange="this.form.submit()">
+								<option value="25" @if(empty($_GET["itemPerPage"])) selected @endif>25</option>
+								<option value="50" @if(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 50) selected @endif>50</option>
+								<option value="100" @if(!empty($_GET["itemPerPage"]) && $_GET["itemPerPage"] == 100) selected @endif>100</option>
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
