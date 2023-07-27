@@ -24,10 +24,10 @@ class StoryUpdateController extends Controller
             $projectValue = json_decode($model->domain);
             return view("pages.Story.update")
                    ->with("story", $model)
-                   ->with("makers", StoryMakerModel::all())
-                   ->with("artAuthors", StoryArtAuthorModel::all())
-                   ->with("templateAuthors", StoryTemplateAuthorModel::all())
-                   ->with("textAuthors", StoryTextAuthorModel::all())
+                   ->with("makers", StoryMakerModel::orderBy("name", "asc")->get())
+                   ->with("artAuthors", StoryArtAuthorModel::orderBy("name", "asc")->get())
+                   ->with("templateAuthors", StoryTemplateAuthorModel::orderBy("name", "asc")->get())
+                   ->with("textAuthors", StoryTextAuthorModel::orderBy("name", "asc")->get())
                    ->with("projects", ProjectModel::all())
                    ->with("publishers", StoryPublisherModel::all())
                    ->with("longImages", StoryLongImagesModel::all()->where("ticket_id", $model->id));

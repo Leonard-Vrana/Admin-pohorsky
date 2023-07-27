@@ -41,4 +41,67 @@
     .inputs label {
         @apply pb-2;
     }
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .select {
+        @apply relative max-w-full outline-none w-full dark:border-gray-600 dark:bg-gray-700 border dark:border-none border-purple-400 focus:border-purple-400;
+    }
+    .select .value {
+        @apply dark:text-white text-black whitespace-nowrap overflow-x-hidden cursor-pointer px-[8px] py-[10px] text-[12px] block relative text-[12px];
+    }
+    .select .value::before {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin: -2px 0;
+        width: 0px;
+        height: 0px;
+        content: "";
+        border-width: 4px;
+        border-style: solid;
+        border-color: #d1d2dd transparent transparent;
+    }
+    .select:focus .value {
+        border-bottom: 1px solid white;
+    }
+    .select .list {
+        @apply dark:bg-gray-700 bg-white absolute top-0 w-full h-0 opacity-0 outline-none;
+        -webkit-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.35);
+        box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        -webkit-transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+        transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+        z-index: 9999;
+    }
+    .select .list.open {
+        height: auto;
+        opacity: 1;
+    }
+    .select .list .filter {
+        @apply hidden px-[8px] py-[10px];
+    }
+    .select .list .filter input {
+        @apply dark:text-white text-black w-full text-[12px] border-none m-0 outline-none;
+    }
+    .select .list ul {
+        @apply block m-0 p-0;
+    }
+    .select .list ul li {
+        @apply block list-none text-[12px] text-black dark:text-white px-[8px] py-[10px] cursor-pointer;
+    }
+    .select .list ul li:hover,
+    .select .list ul li.hovered {
+        color: black;
+        background: white;
+    }
+    .select.large .filter {
+        @apply block;
+    }
+    .select.large .list ul {
+        @apply max-h-[200px] overflow-y-scroll;
+    }
 }

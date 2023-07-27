@@ -39,7 +39,7 @@
                     </div>
                     <div class="grid lg:grid-cols-4 grid-cols-1 gap-3">
                         <div>
-                            <select class="text-black" name="maker">
+                            <select class="text-black autocomplete" name="maker">
                                 <option selected disabled>Výrobce</option>
                                 @foreach ($makers as $maker)
                                     <option value="{{ $maker->id }}" @if($maker->id == $story->maker) selected  @endif>{{ $maker->name }}</option>
@@ -47,7 +47,7 @@
                             </select>
                         </div>
                         <div>
-                            <select class="text-black" name="artAuthor">
+                            <select class="text-black autocomplete" name="artAuthor">
                                 <option selected disabled>Autor kreseb</option>
                                 @foreach ($artAuthors as $author)
                                     <option value="{{ $author->id }}" @if($author->id == $story->art_author) selected  @endif>{{ $author->name }}</option>
@@ -55,7 +55,7 @@
                             </select>
                         </div>
                         <div>
-                            <select class="text-black" name="templateAuthor">
+                            <select class="text-black autocomplete" name="templateAuthor">
                                 <option selected disabled>Autor předlohy</option>
                                 @foreach ($templateAuthors as $author)
                                 <option value="{{ $author->id }}" @if($author->id == $story->template_author) selected  @endif>{{ $author->name }}</option>
@@ -63,7 +63,7 @@
                             </select>
                         </div>
                         <div>
-                            <select class="text-black" name="textAuthor">
+                            <select class="text-black autocomplete" name="textAuthor">
                                 <option selected disabled>Autor Text</option>
                                 @foreach ($textAuthors as $author)
                                 <option value="{{ $author->id }}" @if($author->id == $story->text_author) selected  @endif>{{ $author->name }}</option>
