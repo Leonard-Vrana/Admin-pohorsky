@@ -12,7 +12,7 @@
                 <div class="flex flex-col gap-3">
                     <div class="flex flex-col">
                         <label for="title">Název</label>
-                        <input type="text" id="title" name="title">
+                        <input type="text" id="title" name="title" value="{{ old("title") }}">
                     </div>
                     <div class="flex flex-col">
                         <label for="title">Projekty na kterých se zobrazí tato položka</label>
@@ -24,14 +24,14 @@
                     </div>
                     <div class="flex flex-col">
                         <label for="img">Náhledový obrázek (URL)</label>
-                        <input type="text" id="img" name="img">
+                        <input type="text" id="img" name="img" value="{{ old("img") }}">
                     </div>
                     <div class="grid lg:grid-cols-4 grid-cols-1 gap-3">
                         <div>
                             <select class="text-black" name="maker">
                                 <option selected disabled>Výrobce</option>
                                 @foreach ($makers as $maker)
-                                    <option value="{{ $maker->id }}">{{ $maker->name }}</option>
+                                    <option value="{{ $maker->id }}" @if(old("maker") == $maker->id) selected @endif>{{ $maker->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -39,7 +39,7 @@
                             <select class="text-black" name="artAuthor">
                                 <option selected disabled>Autor kreseb</option>
                                 @foreach ($artAuthors as $author)
-                                    <option value="{{ $author->id }}">{{ $author->name }}</option>
+                                    <option value="{{ $author->id }}" @if(old("artAuthor") == $author->id) selected @endif>{{ $author->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -47,7 +47,7 @@
                             <select class="text-black" name="templateAuthor">
                                 <option selected disabled>Autor předlohy</option>
                                 @foreach ($templateAuthors as $author)
-                                <option value="{{ $author->id }}">{{ $author->name }}</option>
+                                <option value="{{ $author->id }}" @if(old("templateAuthor") == $author->id) selected @endif>{{ $author->name }}</option>
                             @endforeach
                             </select>
                         </div>
@@ -55,7 +55,7 @@
                             <select class="text-black" name="textAuthor">
                                 <option selected disabled>Autor Text</option>
                                 @foreach ($textAuthors as $author)
-                                <option value="{{ $author->id }}">{{ $author->name }}</option>
+                                <option value="{{ $author->id }}" @if(old("textAuthor") == $author->id) selected @endif>{{ $author->name }}</option>
                             @endforeach
                             </select>
                         </div>
@@ -63,59 +63,59 @@
                     <div class="grid grid-cols-3 gap-3">
                         <div class="flex flex-col">
                             <label for="marked">Označení</label>
-                            <input type="text" name="marked" id="marked">
+                            <input type="text" name="marked" id="marked" value="{{ old("marked") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="year">Rok</label>
-                            <input type="text" id="year" name="year">
+                            <input type="text" id="year" name="year" value="{{ old("year") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="lenght">Délka</label>
-                            <input type="text" id="lenght" name="lenght">
+                            <input type="text" id="lenght" name="lenght" value="{{ old("lenght") }}">
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
                         <div class="flex flex-col">
                             <label for="annotation">Anotace</label>
-                            <input type="text" name="annotation" id="annotation">
+                            <input type="text" name="annotation" id="annotation" value="{{ old("annotation") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="height">Výška</label>
-                            <input type="text" name="height" id="height">
+                            <input type="text" name="height" id="height" value="{{ old("height") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="have">Mám</label>
-                            <input type="text" name="have" id="have">
+                            <input type="text" name="have" id="have" value="{{ old("have") }}">
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
                         <div class="flex flex-col">
                             <label for="file">Súbor</label>
-                            <input type="text" name="file" id="file">
+                            <input type="text" name="file" id="file" value="{{ old("file") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="attribute">Atribúty</label>
-                            <input type="text" name="attribute" id="attribute" >
+                            <input type="text" name="attribute" id="attribute" value="{{ old("attribute") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="labels">Štítky</label>
-                            <input type="text" name="labels" id="labels">
+                            <input type="text" name="labels" id="labels" value="{{ old("labels") }}">
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
                         <div class="flex flex-col">
                             <label for="prop-text">Prop text</label>
-                            <input type="text" name="prop-text" id="prop-text">
+                            <input type="text" name="prop-text" id="prop-text" value="{{ old("prop-text") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="collection">Sbírka</label>
-                            <input type="text" name="collection" id="collection">
+                            <input type="text" name="collection" id="collection" value="{{ old("collection") }}">
                         </div>
                         <div class="flex flex-col">
-                            <label for="publisher">Výrobce</label>
-                            <select class="text-black" name="publisher">
+                            <label for="publisher">Vydavatel</label>
+                            <select class="text-black autocomplete" name="publisher">
                                 @foreach ($publishers as $publisher)
-                                    <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
+                                    <option value="{{ $publisher->id }}" @if(old("publisher") == $publisher->id) selected @endif>{{ $publisher->name }}</option>
                                 @endforeach
                             </select>
                         </div> 
@@ -123,15 +123,15 @@
                     <div class="grid grid-cols-3 gap-3">
                         <div class="flex flex-col">
                             <label for="editor">Editor</label>
-                            <input type="text" name="editor" id="editor">
+                            <input type="text" name="editor" id="editor" value="{{ old("editor") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="translator">Preložil</label>
-                            <input type="text" name="translator" id="translator">
+                            <input type="text" name="translator" id="translator" value="{{ old("translator") }}">
                         </div>
                         <div class="flex flex-col">
                             <label for="language">Jazyk</label>
-                            <input type="text" name="language" id="language">
+                            <input type="text" name="language" id="language" value="{{ old('language') }}">
                         </div>
                     </div>
                 </div>

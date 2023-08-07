@@ -121,9 +121,11 @@ class StoryUpdateController extends Controller
 
     public function createImage(Request $r){
         $image = new StoryChildrensModel;
-        if($r->text && $r->id){
+        if($r->id){
             $image->gid = $r->id;
-            $image->text = $r->text;
+            if($r->text){
+                $image->text = $r->text;
+            }
             $randomName = $r->file('image')->hashName();
             $r->file('image')->move(public_path('storage/imgs/'.$r->id.''), $randomName);
             $image->img = "/storage/imgs/".$r->id."/".$randomName;
@@ -156,9 +158,11 @@ class StoryUpdateController extends Controller
     }
 
     public function updateImage(Request $r){
-        if($r->text && $r->id){
+        if($r->id){
             $image = StoryChildrensModel::all()->where("id", $r->id)->first();
-            $image->text = $r->text;
+            if($r->text){
+                $image->text = $r->text;
+            }
             if($r->file('image')){
                 $file = public_path($image->path);
                 if (file_exists($file)) {

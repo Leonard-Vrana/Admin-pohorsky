@@ -124,7 +124,7 @@
                         </div>
                         <div class="flex flex-col">
                             <label for="publisher">Vydavatel</label>
-                            <select class="text-black" name="publisher">
+                            <select class="text-black autocomplete" name="publisher">
                                 <option selected disabled>Prázdné</option>
                                 @foreach ($publishers as $publisher)
                                     <option value="{{ $publisher->id }}" @if($publisher->id == $story->publisher) selected  @endif>{{ $publisher->name }}</option>
