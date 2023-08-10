@@ -355,26 +355,29 @@ class MigrationController extends Controller
         $directory = public_path('storage/diaxImages');
         if (is_dir($directory)) {
             $folders = glob($directory . '/*', GLOB_ONLYDIR);
+            $counter = 0;
             foreach ($folders as $folder) {
                 $folderName = basename($folder);
                 $story = StoryModel::all()->where("id", $folderName)->first();
                 if($story){
                     $images = glob($folder . '/*');
                     foreach($images as $image){
-                        $imageName = basename($image);
-                        $newImage = new StoryChildrensModel;
-                        $newImage->gid = $story->id;
-                        $newImage->img = "/storage/diaxImages/".$folderName."/".$imageName;
-                        $newImage->path = "/storage/diaxImages/".$folderName."/".$imageName;
-                        if($newImage->save()){} else {
-                            echo $folderName."/".$imageName;
-                        }
+                        // $imageName = basename($image);
+                        // $newImage = new StoryChildrensModel;
+                        // $newImage->gid = $story->id;
+                        // $newImage->img = "/storage/diaxImages/".$folderName."/".$imageName;
+                        // $newImage->path = "/storage/diaxImages/".$folderName."/".$imageName;
+                        // if($newImage->save()){} else {
+                        //     echo $folderName."/".$imageName;
+                        // }
+                        $counter++;
                     }
                 } else {
                     echo "Nenašiel sa záznam";
                 }
                 echo "<br /><br />";
             }
+            echo $counter;
         } else {
             echo "Zadaný priečinok neexistuje.";
         }
