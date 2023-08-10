@@ -362,20 +362,19 @@ class MigrationController extends Controller
                 if($story){
                     $images = glob($folder . '/*');
                     foreach($images as $image){
-                        // $imageName = basename($image);
-                        // $newImage = new StoryChildrensModel;
-                        // $newImage->gid = $story->id;
-                        // $newImage->img = "/storage/diaxImages/".$folderName."/".$imageName;
-                        // $newImage->path = "/storage/diaxImages/".$folderName."/".$imageName;
-                        // if($newImage->save()){} else {
-                        //     echo $folderName."/".$imageName;
-                        // }
+                        $imageName = basename($image);
+                        $newImage = new StoryChildrensModel;
+                        $newImage->gid = $story->id;
+                        $newImage->img = "/storage/diaxImages/".$folderName."/".$imageName;
+                        $newImage->path = "/storage/diaxImages/".$folderName."/".$imageName;
+                        if($newImage->save()){} else {
+                            echo $folderName."/".$imageName;
+                        }
                         $counter++;
                     }
                 } else {
                     echo "Nenašiel sa záznam";
                 }
-                echo "<br /><br />";
             }
             echo $counter;
         } else {
