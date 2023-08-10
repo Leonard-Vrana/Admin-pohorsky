@@ -140,21 +140,21 @@ class MigrationController extends Controller
         }
     }
 
-    public function migrateImages(){
-        $images = StoryChildrensModel::all()->where("img", "false");
-        foreach($images as $image){
-            try {
-                $randomName = Str::random(40) . '.jpg';
-                $contents = file_get_contents($image->path);
-                Storage::put('public/storage/imgs/'.$image->gid.'/' . $randomName, $contents);
-                $image->path = '/storage/imgs/'.$image->gid.'/'.$randomName.'';
-                $image->img = '/storage/imgs/'.$image->gid.'/'.$randomName.'';
-                if($image->save()){
-                }
-            } catch(Exception $e){
-            }
-        }
-    }
+    // public function migrateImages(){
+    //     $images = StoryChildrensModel::all()->where("img", "false");
+    //     foreach($images as $image){
+    //         try {
+    //             $randomName = Str::random(40) . '.jpg';
+    //             $contents = file_get_contents($image->path);
+    //             Storage::put('public/storage/imgs/'.$image->gid.'/' . $randomName, $contents);
+    //             $image->path = '/storage/imgs/'.$image->gid.'/'.$randomName.'';
+    //             $image->img = '/storage/imgs/'.$image->gid.'/'.$randomName.'';
+    //             if($image->save()){
+    //             }
+    //         } catch(Exception $e){
+    //         }
+    //     }
+    // }
 
     // public function rand(){
     //     $stories = StoryModel::all()->where("domain", '["skAnime"]')->where("language", "sk");
@@ -348,6 +348,35 @@ class MigrationController extends Controller
                     
                 }
             }
+        }
+    }
+
+    public function diaxImages(){
+        $directory = public_path('storage/diaxImages');
+        if (is_dir($directory)) {
+            $folders = glob($directory . '/*', GLOB_ONLYDIR);
+            foreach ($folders as $folder) {
+                $folderName = basename($folder);
+                $story = StoryModel::all()->where("id", $folderName)->first();
+                if($story){
+                    $images = glob($folder . '/*');
+                    foreach($images as $image){
+                        $imageName = basename($image);
+                        $newImage = new StoryChildrensModel;
+                        $newImage->gid = $story->id;
+                        $newImage->img = "/storage/diaxImages/".$folderName."/".$imageName;
+                        $newImage->path = "/storage/diaxImages/".$folderName."/".$imageName;
+                        if($newImage->save()){} else {
+                            echo $folderName."/".$imageName;
+                        }
+                    }
+                } else {
+                    echo "Nenašiel sa záznam";
+                }
+                echo "<br /><br />";
+            }
+        } else {
+            echo "Zadaný priečinok neexistuje.";
         }
     }
 
