@@ -42,69 +42,27 @@ class StoryUpdateController extends Controller
             $story->domain = json_encode($r->projects);
             $story->img = $r->img;
             $story->language = $r->language;
-            if($r->note){
-                $story->note = $r->note;
-            }
-            if($r->annotation){
-                $story->annotation = $r->annotation;
-            }
-            if($r->height){
-                $story->height = $r->height;
-            }
-            if($r->have){
-                $story->have = $r->have;
-            }
-            if($r->file){
-                $story->file = $r->file;
-            }
-            if($r->attribute){
-                $story->attribute = $r->attribute;
-            }
-            if($r->labels){
-                $story->labels = $r->labels;
-            }
-            if($r["prop-text"]){
-                $story["prop-text"] = $r["prop-text"];
-            }
-            if($r->publisher){
-                $story->publisher = $r->publisher;
-            }
-            if($r->collection){
-                $story->collection = $r->collection;
-            }
-            if($r->editor){
-                $story->editor = $r->editor;
-            }
-            if($r->translator){
-                $story->translator = $r->translator;
-            }
-            if($r->maker){
-                $story->maker = $r->maker;
-            }
-            if($r->artAuthor){
-                $story->art_author = $r->artAuthor;
-            }
-            if($r->templateAuthor){
-                $story->template_author = $r->templateAuthor;
-            }
-            if($r->textAuthor){
-                $story->text_author = $r->textAuthor;
-            }
-            if($r->marked){
-                $story->marked = $r->marked;
-            }
-            if($r->year){
-                $story->year = $r->year;
-            }
-            if($r->lenght){
-                $story->lenght = $r->lenght;
-            }
-            if($r->school_author){
-                $story->school_author = $r->school_author;
-            }
-            if($r->photographer){
-                $story->photographer = $r->photographer;
-            }
+            $story->note = $r->note ? $r->note : null;
+            $story->annotation = $r->annotation ? $r->annotation : null;
+            $story->height = $r->height ? $r->height : null;
+            $story->have = $r->have ? $r->have : null;
+            $story->file = $r->file ? $r->file : null;
+            $story->attribute = $r->attribute ? $r->attribute : null;
+            $story->labels = $r->labels ? $r->labels : null;
+            $story["prop-text"] = $r["prop-text"] ? $r["prop-text"] : null;
+            $story->publisher = $r->publisher ? $r->publisher : null;
+            $story->collection = $r->collection ? $r->collection : null;
+            $story->editor = $r->editor ? $r->editor : null;
+            $story->translator = $r->translator ? $r->translator : null;
+            $story->maker = $r->maker ? $r->maker : null;
+            $story->art_author = $r->artAuthor ? $r->artAuthor : null;
+            $story->template_author = $r->templateAuthor ? $r->templateAuthor : null;
+            $story->text_author = $r->textAuthor ? $r->textAuthor : null;
+            $story->marked = $r->marked ? $r->marked : null;
+            $story->year = $r->year ? $r->year : null;
+            $story->lenght = $r->lenght ? $r->lenght : null;
+            $story->school_author = $r->school_author ? $r->school_author : null;
+            $story->photographer = $r->photographer ? $r->photographer : null;
             if($r->onlyUser){
                 $story->onlyUser = true;
             } else {

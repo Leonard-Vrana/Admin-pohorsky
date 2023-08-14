@@ -31,11 +31,9 @@ class StoryCreateController extends Controller
         $story->domain = json_encode($r->projects);
         $story->img = $r->img;
         $story->language = $r->language;
-        if($r->note){
-            $story->note = $r->note;
-        }
+        $story->note = $r->note || null;
         if($r->annotation){
-            $story->annotation = $r->annotation;
+            $story->annotation = $r->annotation;;
         }
         if($r->height){
             $story->height = $r->height;
