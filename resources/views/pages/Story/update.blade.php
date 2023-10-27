@@ -34,6 +34,17 @@
                         </select>
                     </div>
                     <div class="flex flex-col">
+                        <label for="title">Tagy</label>
+                        <select multiple name="tags[]" class="h-[180px]">
+                            @foreach ($tags as $tag)
+                                @php
+                                    $selected = $story->tags->contains($tag->id) ? 'selected' : '';
+                                @endphp
+                                <option value="{{ $tag->id }}" {{ $selected }}>{{ $tag->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="flex flex-col">
                         <label for="img">Náhledový obrázek (URL)</label>
                         <input type="text" id="img" name="img" value="{{ $story->img }}">
                     </div>

@@ -1052,11 +1052,17 @@ video {
 .h-8 {
   height: 2rem;
 }
+.h-\[60px\] {
+  height: 60px;
+}
 .h-full {
   height: 100%;
 }
 .h-screen {
   height: 100vh;
+}
+.h-\[180px\] {
+  height: 180px;
 }
 .max-h-0 {
   max-height: 0;

@@ -8,6 +8,8 @@ use App\Models\Projects\ProjectModel;
 use App\Models\Story\StoryChildrensModel;
 use App\Models\Story\StoryLongImagesModel;
 use App\Models\Story\StoryModel;
+use App\Models\Story\StoryTagRelations;
+use App\Models\Story\StoryTags;
 use App\Models\StoryTerms\StoryArtAuthorModel;
 use App\Models\StoryTerms\StoryMakerModel;
 use App\Models\StoryTerms\StoryPublisherModel;
@@ -25,6 +27,7 @@ class StoryUpdateController extends Controller
             return view("pages.Story.update")
                    ->with("story", $model)
                    ->with("makers", StoryMakerModel::orderBy("name", "asc")->get())
+                   ->with("tags", StoryTags::all())
                    ->with("artAuthors", StoryArtAuthorModel::orderBy("name", "asc")->get())
                    ->with("templateAuthors", StoryTemplateAuthorModel::orderBy("name", "asc")->get())
                    ->with("textAuthors", StoryTextAuthorModel::orderBy("name", "asc")->get())
@@ -38,6 +41,7 @@ class StoryUpdateController extends Controller
     public function update(StoryCreateRequest $r){
         if($r->id){
             $story = StoryModel::all()->where("id", $r->id)->first();
+            $story->tags()->sync($r->tags);
             $story->title = $r->title;
             $story->domain = json_encode($r->projects);
             $story->img = $r->img;

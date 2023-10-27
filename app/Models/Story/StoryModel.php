@@ -20,4 +20,9 @@ class StoryModel extends Model
     {
         return $this->hasMany(UserNotes::class, "story_id");
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(StoryTags::class, 'story_tag_relations', 'story_id', 'tag_id');
+    }
 }
