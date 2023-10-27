@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Story\StoryModel;
 use App\Models\Story\StoryChildrensModel;
+use App\Models\Story\StoryTagRelations;
+use App\Models\Story\StoryTags;
 use App\Models\StoryTerms\StoryArtAuthorModel;
 use App\Models\StoryTerms\StoryMakerModel;
 use App\Models\StoryTerms\StoryPublisherModel;
@@ -347,6 +349,24 @@ class MigrationController extends Controller
                 if($story->save()){
                     
                 }
+            }
+        }
+    }
+
+    public function migrateTags(){
+        $stories = StoryModel::all();
+        foreach($stories as $story){
+            $file = $story->file;
+            $array = explode(", ", $file);
+            foreach($array as $item){
+                if($item === "-"){
+                    continue;
+                }
+                if(!$item){
+                    continue;
+                }
+                $tag = StoryTags::firstOrCreate(['name' => $item]);
+                $relation = StoryTagRelations::firstOrCreate(["tag_id" => $tag->id, "story_id" => $story->id]);
             }
         }
     }

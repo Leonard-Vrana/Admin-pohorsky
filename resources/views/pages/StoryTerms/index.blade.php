@@ -23,6 +23,7 @@
 			<a href="{{ route("admin-storyTerms", "templateAuthor") }}" class="btn-primary {{ $type == "templateAuthor" ? "selected" : null }}">Autor předlohy</a>
 			<a href="{{ route("admin-storyTerms", "textAuthor") }}" class="btn-primary {{ $type == "textAuthor" ? "selected" : null }}">Autor textu</a>
 			<a href="{{ route("admin-storyTerms", "publisher") }}" class="btn-primary {{ $type == "publisher" ? "selected" : null }}">Vydavatel</a>
+			<a href="{{ route("admin-storyTerms", "tags") }}" class="btn-primary {{ $type == "tags" ? "selected" : null }}">Tagy</a>
 		  </div>
 		  <div>
 			<div class="flex items-center gap-3 inputs">

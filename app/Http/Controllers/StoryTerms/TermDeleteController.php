@@ -4,6 +4,8 @@ namespace App\Http\Controllers\StoryTerms;
 
 use App\Http\Controllers\Controller;
 use App\Models\Story\StoryModel;
+use App\Models\Story\StoryTagRelations;
+use App\Models\Story\StoryTags;
 use App\Models\StoryTerms\StoryArtAuthorModel;
 use App\Models\StoryTerms\StoryMakerModel;
 use App\Models\StoryTerms\StoryPublisherModel;
@@ -35,6 +37,10 @@ class TermDeleteController extends Controller
                 if($this->deletePublisher($r->id)){
                     flash("Položka byla úspěšně vymazána")->success();
                 }
+            } elseif($r->termType == "tags"){
+                if($this->deleteStoryTag($r->id)){
+                    flash("Položka byla úspěšně vymazána")->success();
+                }
             }
             return back();
         }
@@ -53,6 +59,20 @@ class TermDeleteController extends Controller
             }
         }
         flash("Autor se nepodařil vymazat")->error();
+        return false;
+    }
+
+    public function deleteStoryTag($id){
+        $model = StoryTags::all()->where("id", $id)->first();
+        $can = StoryTagRelations::where("tag_id", $model->id)->get();
+        if($model){
+            if(1 > count($can)){
+                if($model->delete()){
+                    return true;
+                }
+            }
+        }
+        flash("Tag se nepodařil vymazat")->error();
         return false;
     }
 

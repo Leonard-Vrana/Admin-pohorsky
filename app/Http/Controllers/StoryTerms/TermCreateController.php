@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\StoryTerms;
 
 use App\Http\Controllers\Controller;
+use App\Models\Story\StoryTags;
 use App\Models\StoryTerms\StoryArtAuthorModel;
 use App\Models\StoryTerms\StoryMakerModel;
 use App\Models\StoryTerms\StoryPublisherModel;
@@ -34,6 +35,10 @@ class TermCreateController extends Controller
                 if($this->createPublisher($r->nameAuthor)){
                     flash("Položka byla úspěšně přidána")->success();
                 }
+            } elseif($r->termType == "tags"){
+                if($this->createStoryTag($r->nameAuthor)){
+                    flash("Položka byla úspěšně přidána")->success();
+                }
             }
             return back();
         }
@@ -43,6 +48,18 @@ class TermCreateController extends Controller
 
     public function createStoryMaker($name){
         $model = new StoryMakerModel;
+        if($name){
+            $model->name = $name;
+            if($model->save()){
+                return true;
+            }
+        }
+        flash("Autor se nepodařil vytvořit");
+        return back();
+    }
+
+    public function createStoryTag($name){
+        $model = new StoryTags;
         if($name){
             $model->name = $name;
             if($model->save()){

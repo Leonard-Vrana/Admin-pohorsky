@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\StoryTerms;
 
 use App\Http\Controllers\Controller;
+use App\Models\Story\StoryTags;
 use App\Models\StoryTerms\StoryArtAuthorModel;
 use App\Models\StoryTerms\StoryMakerModel;
 use App\Models\StoryTerms\StoryPublisherModel;
@@ -34,6 +35,10 @@ class TermUpdateController extends Controller
                 if($this->updatePublisher($r->id, $r->nameAuthor)){
                     flash("Položka byla upravena")->success();
                 }
+            } elseif($r->termType == "tags"){
+                if($this->updateStoryTag($r->id, $r->nameAuthor)){
+                    flash("Položka byla upravena")->success();
+                }
             }
             return back();
         }
@@ -50,6 +55,18 @@ class TermUpdateController extends Controller
             }
         }
         flash("Autor se nepodařil upravit");
+        return back();
+    }
+
+    public function updateStoryTag($id, $name){
+        $model = StoryTags::all()->where("id", $id)->first();
+        if($model){
+            $model->name = $name;
+            if($model->save()){
+                return true;
+            }
+        }
+        flash("Tag se nepodařil upravit");
         return back();
     }
 

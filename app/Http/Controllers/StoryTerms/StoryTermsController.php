@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\StoryTerms;
 
 use App\Http\Controllers\Controller;
+use App\Models\Story\StoryTags;
 use App\Models\StoryTerms\StoryArtAuthorModel;
 use App\Models\StoryTerms\StoryMakerModel;
 use App\Models\StoryTerms\StoryPublisherModel;
@@ -34,6 +35,10 @@ class StoryTermsController extends Controller
             $authors = StoryPublisherModel::query();
             $name = "Story publishers";
             $type = "publisher";
+        } elseif($name === "tags") {
+            $authors = StoryTags::query();
+            $name = "Story tags";
+            $type = "tags";
         } else {
             return redirect(route("homepage"));
         }
