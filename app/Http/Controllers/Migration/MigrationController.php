@@ -402,4 +402,33 @@ class MigrationController extends Controller
     //     }
     // }
 
+
+    public function migrationArtAuthor(){
+        $stories = StoryModel::all();
+        foreach($stories as $story){
+            $author = $story->school_author;
+            $findAuthor = StoryTextAuthorModel::all()->where("name", $author)->first();
+            if($author){
+                if($findAuthor)
+                {
+                    $story->text_author = $findAuthor->id;
+                    $story->school_author = "";
+                    if($story->save()){
+    
+                    }
+                } else {
+                    $newAuthor = new StoryTextAuthorModel;
+                    $newAuthor->name = $author;
+                    if($newAuthor->save()){
+                        $story->text_author = $newAuthor->id;
+                        $story->school_author = "";
+                        if($story->save()){
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
