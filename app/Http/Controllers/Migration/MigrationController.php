@@ -403,32 +403,32 @@ class MigrationController extends Controller
     // }
 
 
-    public function migrationArtAuthor(){
-        $stories = StoryModel::all();
-        foreach($stories as $story){
-            $author = $story->photographer;
-            $findAuthor = StoryArtAuthorModel::all()->where("name", $author)->first();
-            if($author){
-                if($findAuthor)
-                {
-                    $story->text_author = $findAuthor->id;
-                    $story->photographer = "";
-                    if($story->save()){
+    // public function migrationArtAuthor(){
+    //     $stories = StoryModel::all();
+    //     foreach($stories as $story){
+    //         $author = $story->photographer;
+    //         $findAuthor = StoryArtAuthorModel::all()->where("name", $author)->first();
+    //         if($author){
+    //             if($findAuthor)
+    //             {
+    //                 $story->text_author = $findAuthor->id;
+    //                 $story->photographer = "";
+    //                 if($story->save()){
     
-                    }
-                } else {
-                    $newAuthor = new StoryArtAuthorModel;
-                    $newAuthor->name = $author;
-                    if($newAuthor->save()){
-                        $story->text_author = $newAuthor->id;
-                        $story->photographer = "";
-                        if($story->save()){
+    //                 }
+    //             } else {
+    //                 $newAuthor = new StoryArtAuthorModel;
+    //                 $newAuthor->name = $author;
+    //                 if($newAuthor->save()){
+    //                     $story->text_author = $newAuthor->id;
+    //                     $story->photographer = "";
+    //                     if($story->save()){
                             
-                        }
-                    }
-                }
-            }
-        }
-    }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
 }
