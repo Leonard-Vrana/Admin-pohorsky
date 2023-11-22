@@ -85,23 +85,33 @@ class StoryController extends Controller
             $csv = Reader::createFromPath($file->getPathname(), 'r');
             $csv->setDelimiter(',');
             $csv->setHeaderOffset(0);
-            
-            $records = $csv->getRecords(['ID', 'Skladem (pocet kusu)', 'URL']);
-            
-            foreach ($records as $record) {
-                $id = $record['ID'];
-                $skladem = $record['Skladem (pocet kusu)'];
-                $url = 'https://www.diacek.eu'.Str::before($record['URL'], '|');
-
+            $records = $csv->getRecords(['id prispevku', 'id autor textu']);
+            foreach($records as $record){
+                $id = $record["id prispevku"];
+                $textAuthor = $record["id autor textu"];
                 $story = StoryModel::all()->where("id", $id)->first();
-                if($story){
-                    $story->eshop_url = $url;
-                    $story->eshop_storage = $skladem;
-                    if($story->save()){
+                $story->text_author = $textAuthor;
+                if($story->save()){
 
-                    }
                 }
             }
+            
+            // $records = $csv->getRecords(['ID', 'Skladem (pocet kusu)', 'URL']);
+            
+            // foreach ($records as $record) {
+            //     $id = $record['ID'];
+            //     $skladem = $record['Skladem (pocet kusu)'];
+            //     $url = 'https://www.diacek.eu'.Str::before($record['URL'], '|');
+
+            //     $story = StoryModel::all()->where("id", $id)->first();
+            //     if($story){
+            //         $story->eshop_url = $url;
+            //         $story->eshop_storage = $skladem;
+            //         if($story->save()){
+
+            //         }
+            //     }
+            // }
 
             flash("Import proběhl úspěšně")->success();
             return back();
