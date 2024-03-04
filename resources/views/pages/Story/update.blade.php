@@ -26,6 +26,10 @@
                         <input type="text" id="title" value="{{ $story->title }}" name="title">
                     </div>
                     <div class="flex flex-col">
+                        <label for="slug">Slug</label>
+                        <input type="text" id="slug" value="{{ $story->slug }}" name="slug">
+                    </div>
+                    <div class="flex flex-col">
                         <label for="title">Projekty na kterých se zobrazí tato položka</label>
                         <select multiple name="projects[]">
                             @foreach ($projects as $project)

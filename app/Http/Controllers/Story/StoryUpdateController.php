@@ -16,6 +16,7 @@ use App\Models\StoryTerms\StoryPublisherModel;
 use App\Models\StoryTerms\StoryTemplateAuthorModel;
 use App\Models\StoryTerms\StoryTextAuthorModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class StoryUpdateController extends Controller
@@ -43,6 +44,7 @@ class StoryUpdateController extends Controller
             $story = StoryModel::all()->where("id", $r->id)->first();
             $story->tags()->sync($r->tags);
             $story->title = $r->title;
+            $story->slug = Str::slug($r->title, "-");
             $story->domain = json_encode($r->projects);
             $story->img = $r->img;
             $story->language = $r->language;

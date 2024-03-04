@@ -12,6 +12,7 @@ use App\Models\StoryTerms\StoryPublisherModel;
 use App\Models\StoryTerms\StoryTemplateAuthorModel;
 use App\Models\StoryTerms\StoryTextAuthorModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class StoryCreateController extends Controller
 {
@@ -28,6 +29,7 @@ class StoryCreateController extends Controller
     public function create(StoryCreateRequest $r){
         $story = new StoryModel;
         $story->title = $r->title;
+        $story->slug = Str::slug($r->title, "-");
         $story->domain = json_encode($r->projects);
         $story->img = $r->img;
         $story->language = $r->language;
