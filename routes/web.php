@@ -42,7 +42,7 @@ Route::get('/forgot-password', function () {
 })->name("forgor-password");
 Route::get('forgot-password/verify/{id}', 'App\Http\Controllers\Auth\LoginController@verifyTokenPage');
 
-// Route::get('test/migrate', 'App\Http\Controllers\Migration\MigrationController@migrationArtAuthor');
+Route::get('test/migrate', 'App\Http\Controllers\Migration\MigrationController@generateSlug');
 
 Route::post('server/login', 'App\Http\Controllers\Auth\LoginController@login')->name('admin-login');
 Route::post('server/forgot-password', 'App\Http\Controllers\Auth\LoginController@forgotPassword')->name('admin-forgotPassword');
