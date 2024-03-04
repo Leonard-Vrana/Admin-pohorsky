@@ -431,23 +431,23 @@ class MigrationController extends Controller
     //     }
     // }
 
-    public function generateSlug()
-    {
-        $stories = StoryModel::all();
+    // public function generateSlug()
+    // {
+    //     $stories = StoryModel::all();
 
-        foreach ($stories as $story) {
-                $baseSlug = Str::slug($story->title, '-');
-                $slug = $baseSlug;
-                $counter = 1;
+    //     foreach ($stories as $story) {
+    //             $baseSlug = Str::slug($story->title, '-');
+    //             $slug = $baseSlug;
+    //             $counter = 1;
 
-                while (StoryModel::where('slug', $slug)->exists()) {
-                    $slug = $baseSlug . '-' . $counter;
-                    $counter++;
-                }
+    //             while (StoryModel::where('slug', $slug)->exists()) {
+    //                 $slug = $baseSlug . '-' . $counter;
+    //                 $counter++;
+    //             }
 
-                $story->slug = $slug;
-                $story->save();
-        }
-    }
+    //             $story->slug = $slug;
+    //             $story->save();
+    //     }
+    // }
 
 }
