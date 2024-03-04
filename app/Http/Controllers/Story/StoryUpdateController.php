@@ -44,7 +44,7 @@ class StoryUpdateController extends Controller
             $story = StoryModel::all()->where("id", $r->id)->first();
             $story->tags()->sync($r->tags);
             $story->title = $r->title;
-            $story->slug = Str::slug($r->title, "-");
+            $story->slug = Str::slug($r->slug, "-");
             $story->domain = json_encode($r->projects);
             $story->img = $r->img;
             $story->language = $r->language;
